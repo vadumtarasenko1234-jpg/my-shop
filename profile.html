@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій Профіль | TECH HARBOR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Додаткові стилі спеціально для профілю, щоб не псувати основний CSS */
+        .profile-wrapper { display: flex; gap: 30px; padding: 40px 5%; align-items: flex-start; }
+        .profile-sidebar { flex: 1; background: #1a1d21; border: 1px solid #333; border-radius: 10px; padding: 25px; text-align: center; }
+        .profile-main { flex: 3; background: #1a1d21; border: 1px solid #333; border-radius: 10px; padding: 30px; }
+        
+        .avatar-circle { width: 120px; height: 120px; background: #090a0c; border: 2px solid #00d4ff; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #00d4ff; }
+        .profile-nav { margin-top: 25px; text-align: left; }
+        .profile-nav a { display: block; padding: 12px; color: #ccc; text-decoration: none; border-bottom: 1px solid #222; transition: 0.3s; }
+        .profile-nav a:hover, .profile-nav a.active { color: #00d4ff; background: #090a0c; padding-left: 20px; }
+        
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+        .info-group label { display: block; color: #777; margin-bottom: 5px; font-size: 0.9rem; }
+        .info-group div { color: #fff; font-size: 1.1rem; border-bottom: 1px solid #333; padding-bottom: 5px; }
+        
+        .order-card { background: #090a0c; border: 1px solid #333; padding: 15px; border-radius: 5px; margin-top: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .status-completed { color: #00ff88; font-weight: bold; }
+    </style>
+</head>
+<body class="tech-shop-theme">
+
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <span><i class="fa-solid fa-phone"></i> +38 (099) 123-45-67</span>
+            <span><i class="fa-solid fa-envelope"></i> info@techharbor.ua</span>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-main">
+            <div class="logo-container">
+                <h1><a href="index.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-microchip"></i> TECH HARBOR</a></h1>
+            </div>
+            <div class="header-icons">
+                <a href="profile.html" class="active"><i class="fa-solid fa-user"></i> Профіль</a>
+                <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Кошик</a>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Головна</a>
+            <a href="catalog-laptops.html">Ноутбуки</a>
+            <a href="catalog-components.html">Комплектуючі</a>
+            <a href="catalog-peripherals.html">Периферія</a>
+            <a href="about.html">Про нас</a>
+            <a href="contacts.html">Контакти</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="profile-wrapper">
+            <aside class="profile-sidebar">
+                <div class="avatar-circle">
+                    <i class="fa-solid fa-user-gear"></i>
+                </div>
+                <h3>Олександр Петренко</h3>
+                <p style="color: #777;">ID: 44821</p>
+                
+                <nav class="profile-nav">
+    <a href="#" class="active"><i class="fa-solid fa-address-card"></i> Особисті дані</a>
+    <a href="javascript:void(0)" onclick="showOrders()"><i class="fa-solid fa-box-open"></i> Мої замовлення</a>
+    <a href="javascript:void(0)" onclick="showWishlist()"><i class="fa-solid fa-heart"></i> Список бажань</a>
+    <a href="index.html" style="color: #ff4d4d;"><i class="fa-solid fa-right-from-bracket"></i> Вийти</a>
+</nav>
+            </aside>
+
+           <section class="profile-main">
+    <h2 class="section-title" style="text-align: left; margin-top: 0;">ОСОБИСТІ ДАНІ</h2>
+    
+    <div id="view-mode">
+        <div class="info-grid">
+            <div class="info-group">
+                <label>Прізвище та Ім'я</label>
+                <div id="display-name">Олександр Петренко</div>
+            </div>
+            <div class="info-group">
+                <label>Електронна пошта</label>
+                <div id="display-email">alex.p@gmail.com</div>
+            </div>
+            <div class="info-group">
+                <label>Телефон</label>
+                <div id="display-phone">+38 (067) 111-22-33</div>
+            </div>
+            <div class="info-group">
+                <label>Місто доставки</label>
+                <div id="display-city">Київ</div>
+            </div>
+        </div>
+        <button class="button" style="margin-top: 30px;" onclick="toggleEdit()">РЕДАГУВАТИ ПРОФІЛЬ</button>
+    </div>
+
+    <div id="edit-mode" style="display: none;">
+        <div class="info-grid">
+            <div class="info-group">
+                <label>Прізвище та Ім'я</label>
+                <input type="text" id="edit-name" value="Олександр Петренко" class="qty-input-small" style="width: 100%;">
+            </div>
+            <div class="info-group">
+                <label>Електронна пошта</label>
+                <input type="email" id="edit-email" value="alex.p@gmail.com" class="qty-input-small" style="width: 100%;">
+            </div>
+            <div class="info-group">
+                <label>Телефон</label>
+                <input type="text" id="edit-phone" value="+38 (067) 111-22-33" class="qty-input-small" style="width: 100%;">
+            </div>
+            <div class="info-group">
+                <label>Місто доставки</label>
+                <input type="text" id="edit-city" value="Київ" class="qty-input-small" style="width: 100%;">
+            </div>
+        </div>
+        <div style="margin-top: 30px; display: flex; gap: 10px;">
+            <button class="button" onclick="saveChanges()">ЗБЕРЕГТИ</button>
+            <button class="button" style="background: #333;" onclick="toggleEdit()">СКАСУВАТИ</button>
+        </div>
+    </div>
+
+    <h2 class="section-title" style="text-align: left; margin-top: 40px;">ОСТАННЄ ЗАМОВЛЕННЯ</h2>
+    <div class="order-card">
+        <div>
+            <p><strong>№ 55301 від 28.03.2024</strong></p>
+            <p style="font-size: 0.9rem; color: #777;">Відеокарта MSI RTX 4090, Блок живлення 1000W</p>
+        </div>
+        <div style="text-align: right;">
+            <p style="color: #00ff88; font-weight: bold;">Виконано</p>
+            <p>89 400 ₴</p>
+        </div>
+    </div>
+</section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Tech Harbor. Усі права захищені.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+<script>
+    // Функція перемикання між переглядом і редагуванням
+    function toggleEdit() {
+        const viewMode = document.getElementById('view-mode');
+        const editMode = document.getElementById('edit-mode');
+        
+        if (viewMode.style.display === 'none') {
+            viewMode.style.display = 'block';
+            editMode.style.display = 'none';
+        } else {
+            viewMode.style.display = 'none';
+            editMode.style.display = 'block';
+        }
+    }
+
+    // Функція збереження змін
+    function saveChanges() {
+        // Беремо дані з інпутів
+        const newName = document.getElementById('edit-name').value;
+        const newEmail = document.getElementById('edit-email').value;
+        const newPhone = document.getElementById('edit-phone').value;
+        const newCity = document.getElementById('edit-city').value;
+
+        // Записуємо їх у текстові блоки
+        document.getElementById('display-name').innerText = newName;
+        document.getElementById('display-email').innerText = newEmail;
+        document.getElementById('display-phone').innerText = newPhone;
+        document.getElementById('display-city').innerText = newCity;
+        
+        // Оновлюємо ім'я в шапці профілю
+        document.querySelector('.profile-sidebar h3').innerText = newName;
+
+        // Повертаємося в режим перегляду
+        toggleEdit();
+        alert("Дані успішно оновлено!");
+    }
+
+    // Функції для кнопок, що не працювали
+    function showOrders() {
+        alert("У вас поки що немає нових замовлень, окрім завершеного.");
+    }
+
+    function showWishlist() {
+        alert("Ваш список бажань порожній. Перейдіть у каталог, щоб додати товари.");
+    }
+</script>

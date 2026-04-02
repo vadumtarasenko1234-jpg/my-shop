@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECH HARBOR | Головна сторінка</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="tech-shop-theme">
+
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <span><i class="fa-solid fa-phone"></i> +38 (099) 123-45-67</span>
+            <span><i class="fa-solid fa-envelope"></i> info@techharbor.ua</span>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-main">
+            <div class="logo-container">
+                <h1><a href="index.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-microchip"></i> TECH HARBOR</a></h1>
+            </div>
+            
+            <form class="search-form" onsubmit="return performSearch(event)">
+              <input type="text" id="search-input" placeholder="Пошук товарів...">
+              <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+
+            <div class="header-icons">
+                <a href="profile.html"><i class="fa-solid fa-user"></i> Профіль</a>
+                <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Кошик (1)</a>
+            </div>
+        </div>
+
+<nav>
+    <a href="index.html" class="active">Головна</a>
+    <a href="catalog-laptops.html">Ноутбуки</a>
+    <a href="catalog-components.html">Комплектуючі</a>
+    <a href="catalog-peripherals.html">Периферія</a>
+    <a href="about.html">Про нас</a>
+    <a href="contacts.html">Контакти</a>
+</nav>
+    </header>
+
+    <main>
+        <section class="hero-banner">
+            <div class="hero-content">
+                <h2 class="main-title">НОВЕ ПОКОЛІННЯ ГЕЙМІНГУ</h2>
+                <p>Відеокарти RTX 40-ї серії вже в наявності. Відчуй міць DLSS 3.</p>
+                <a href="catalog.html" class="button button-large">В КАТАЛОГ</a>
+            </div>
+        </section>
+
+        <section class="categories-section">
+            <h2 class="section-title">КАТЕГОРІЇ ТОВАРІВ</h2>
+            <div class="categories-grid">
+    <a href="catalog.html" style="text-decoration: none; color: inherit;" class="category-card">
+        <i class="fa-solid fa-desktop fa-3x"></i>
+        <h3>Готові ПК</h3>
+    </a>
+    <a href="catalog-laptops.html" style="text-decoration: none; color: inherit;" class="category-card">
+        <i class="fa-solid fa-laptop fa-3x"></i>
+        <h3>Ноутбуки</h3>
+    </a>
+    <a href="catalog-components.html" style="text-decoration: none; color: inherit;" class="category-card">
+        <i class="fa-solid fa-memory fa-3x"></i>
+        <h3>Комплектуючі</h3>
+    </a>
+    <a href="catalog-peripherals.html" style="text-decoration: none; color: inherit;" class="category-card">
+        <i class="fa-solid fa-headphones fa-3x"></i>
+        <h3>Периферія</h3>
+    </a>
+</div>
+        </section>
+
+        <section class="products-section">
+            <h2 class="section-title">ХІТИ ПРОДАЖІВ</h2>
+            <div class="products-container">
+                <article class="product-card">
+                    <div class="badge">ТОП</div>
+                    <a href="product.html"><img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Процесор" class="product-img"></a>
+                    <h3><a href="product.html" style="color: inherit; text-decoration: none;">Core i9-13900K</a></h3>
+                    <p class="price">21 999 ₴</p>
+                    <a href="cart.html" class="button">В кошик</a>
+                </article>
+
+                <article class="product-card">
+                    <a href="product.html"><img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Відеокарта" class="product-img"></a>
+                    <h3><a href="product.html" style="color: inherit; text-decoration: none;">GeForce RTX 4090</a></h3>
+                    <p class="price">75 999 ₴</p>
+                    <a href="cart.html" class="button">В кошик</a>
+                </article>
+
+                <article class="product-card">
+                    <div class="badge discount">-15%</div>
+                    <a href="product.html"><img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Ноутбук" class="product-img"></a>
+                    <h3><a href="product.html" style="color: inherit; text-decoration: none;">Razer Blade 16</a></h3>
+                    <p class="price">67 999 ₴ <del>79 999 ₴</del></p>
+                    <a href="cart.html" class="button">В кошик</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fa-solid fa-truck-fast fa-2x"></i>
+                    <h4>Швидка доставка</h4>
+                    <p>Відправляємо в день замовлення</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-shield-halved fa-2x"></i>
+                    <h4>Офіційна гарантія</h4>
+                    <p>До 36 місяців на всі товари</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-headset fa-2x"></i>
+                    <h4>Підтримка 24/7</h4>
+                    <p>Допоможемо зі збіркою</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>TECH HARBOR</h3>
+                <p>Твій надійний партнер у світі високих технологій. Ми працюємо для того, щоб твій FPS завжди був на висоті.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Клієнтам</h3>
+                <ul>
+                    <li><a href="#">Доставка і оплата</a></li>
+                    <li><a href="#">Гарантія та повернення</a></li>
+                    <li><a href="#">Блог</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Підписка на новини</h3>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Ваш Email">
+                    <button type="button">Підписатися</button>
+                </form>
+                <div class="socials">
+                    <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Tech Harbor. Усі права захищені. Розроблено для курсової роботи.</p>
+        </div>
+    </footer>
+<script>
+function performSearch(event) {
+    event.preventDefault(); // Зупиняємо перезавантаження сторінки
+    
+    // Отримуємо текст із поля, видаляємо зайві пробіли та переводимо в нижній регістр
+    const inputField = document.getElementById('search-input');
+    if (!inputField) return;
+    
+    const query = inputField.value.toLowerCase().trim();
+
+    // 1. Перевірка на порожній запит
+    if (query === "") {
+        alert("Будь ласка, введіть назву товару для пошуку.");
+        return false;
+    }
+
+    // 2. Логіка перенаправлення за ключовими словами
+    if (query.includes('ноут') || query.includes('laptop') || query.includes('asus') || query.includes('acer') || query.includes('lenovo')) {
+        window.location.href = 'catalog-laptops.html';
+    } 
+    else if (query.includes('відео') || query.includes('rtx') || query.includes('gpu') || query.includes('процесор') || query.includes('intel') || query.includes('amd')) {
+        window.location.href = 'catalog-components.html';
+    } 
+    else if (query.includes('миш') || query.includes('клавіа') || query.includes('навуш') || query.includes('монітор') || query.includes('перифер')) {
+        window.location.href = 'catalog-peripherals.html';
+    } 
+    // 3. ЯКЩО НІЧОГО НЕ ЗНАЙДЕНО
+    else {
+        alert("На жаль, за запитом '" + query + "' нічого не знайдено. Спробуйте ввести: 'ноутбук', 'RTX' або 'миша'.");
+    }
+
+    return false;
+}
+</script>
+</body>
+</html>

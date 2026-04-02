@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакти | TECH HARBOR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contacts-layout { display: flex; gap: 40px; flex-wrap: wrap; }
+        .contacts-info, .contacts-form { flex: 1; min-width: 300px; background-color: #1a1d21; padding: 40px; border-radius: 10px; border: 1px solid #333; }
+        .contacts-info h2, .contacts-form h2 { color: #00d4ff; font-family: 'Oswald', sans-serif; margin-bottom: 25px; }
+        .contact-item { display: flex; gap: 15px; margin-bottom: 20px; color: #ccc; align-items: center; font-size: 1.1rem; }
+        .contact-item i { color: #00d4ff; font-size: 1.5rem; width: 30px; text-align: center; }
+        .map-placeholder { width: 100%; height: 200px; background-color: #090a0c; border: 1px dashed #555; display: flex; align-items: center; justify-content: center; color: #666; margin-top: 20px; border-radius: 5px; }
+        .c-form-group { margin-bottom: 15px; }
+        .c-form-group input, .c-form-group textarea { width: 100%; padding: 12px; background-color: #090a0c; border: 1px solid #333; color: #fff; border-radius: 5px; outline: none; }
+        .c-form-group input:focus, .c-form-group textarea:focus { border-color: #00d4ff; }
+    </style>
+</head>
+<body class="tech-shop-theme">
+
+    <header>
+        <div class="header-main">
+            <div class="logo-container">
+                <h1><a href="index.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-microchip"></i> TECH HARBOR</a></h1>
+            </div>
+            <div class="header-icons">
+                <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Кошик</a>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Головна</a>
+            <a href="catalog.html">Каталог</a>
+            <a href="about.html">Про нас</a>
+            <a href="contacts.html" class="active">Контакти</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="contacts-layout">
+            <div class="contacts-info">
+                <h2>НАШІ КОНТАКТИ</h2>
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>м. Київ, вул. Хрещатик, 1 (ТЦ "Глобус", 1 поверх)</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+38 (099) 123-45-67<br>+38 (067) 765-43-21</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>info@techharbor.ua</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>Пн-Нд: 10:00 - 20:00 (Без вихідних)</span>
+                </div>
+                
+                <div class="map-placeholder">
+                    [Тут може бути інтерактивна Google Карта]
+                </div>
+            </div>
+
+            <div class="contacts-form">
+                <h2>НАПИШІТЬ НАМ</h2>
+                <form action="#" method="POST">
+                    <div class="c-form-group">
+                        <input type="text" placeholder="Ваше ім'я" required>
+                    </div>
+                    <div class="c-form-group">
+                        <input type="email" placeholder="Ваш Email" required>
+                    </div>
+                    <div class="c-form-group">
+                        <input type="text" placeholder="Тема повідомлення">
+                    </div>
+                    <div class="c-form-group">
+                        <textarea rows="5" placeholder="Текст повідомлення..." required></textarea>
+                    </div>
+                    <button type="button" class="button" style="width: 100%;" onclick="alert('Повідомлення відправлено!')">ВІДПРАВИТИ</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-bottom">
+        <p>&copy; 2024 Tech Harbor. Усі права захищені.</p>
+    </footer>
+
+</body>
+</html>

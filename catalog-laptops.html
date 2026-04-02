@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ноутбуки | TECH HARBOR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="tech-shop-theme">
+
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <span><i class="fa-solid fa-phone"></i> +38 (099) 123-45-67</span>
+            <span><i class="fa-solid fa-envelope"></i> info@techharbor.ua</span>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-main">
+            <div class="logo-container">
+                <h1><a href="index.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-microchip"></i> TECH HARBOR</a></h1>
+            </div>
+
+            <form class="search-form" onsubmit="return performSearch(event)">
+                <input type="text" id="search-input" placeholder="Пошук товарів...">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+
+            <div class="header-icons">
+                <a href="#"><i class="fa-solid fa-user"></i> Профіль</a>
+                <a href="cart.html" id="cart-link"><i class="fa-solid fa-cart-shopping"></i> Кошик (0)</a>
+            </div>
+        </div>
+
+        <nav>
+            <a href="index.html">Головна</a>
+            <a href="catalog-laptops.html" class="active">Ноутбуки</a>
+            <a href="catalog-components.html">Комплектуючі</a>
+            <a href="catalog-peripherals.html">Периферія</a>
+            <a href="about.html">Про нас</a>
+            <a href="contacts.html">Контакти</a>
+        </nav>
+    </header>
+
+    <main class="catalog-layout" style="padding: 40px 0;">
+        
+        <aside class="sidebar-filters">
+            <h3 style="margin-top: 0; margin-bottom: 20px; font-family: 'Oswald', sans-serif; font-size: 1.5rem; text-transform: uppercase;">Фільтри</h3>
+            
+            <div class="filter-group">
+                <h4>Ціна (₴)</h4>
+                <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                    <input type="number" placeholder="Від" style="width: 100%; padding: 8px; background: #1e1e24; border: 1px solid #333; color: #fff; border-radius: 4px;">
+                    <input type="number" placeholder="До" style="width: 100%; padding: 8px; background: #1e1e24; border: 1px solid #333; color: #fff; border-radius: 4px;">
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h4>Призначення</h4>
+                <label><input type="checkbox" checked> Ігрові</label>
+                <label><input type="checkbox"> Для роботи та навчання</label>
+                <label><input type="checkbox"> Ультрабуки</label>
+                <label><input type="checkbox"> Для графіки (Creator)</label>
+            </div>
+
+            <div class="filter-group">
+                <h4>Бренд</h4>
+                <label><input type="checkbox"> ASUS</label>
+                <label><input type="checkbox"> Acer</label>
+                <label><input type="checkbox"> Lenovo</label>
+                <label><input type="checkbox"> MSI</label>
+                <label><input type="checkbox"> Razer</label>
+                <label><input type="checkbox"> Apple</label>
+                <label><input type="checkbox"> HP</label>
+            </div>
+
+            <button class="button" style="width: 100%; margin-top: 15px;">ЗАСТОСУВАТИ</button>
+        </aside>
+
+        <section class="catalog-content">
+            <h2 class="section-title" style="margin-top: 0; text-align: left;">КАТАЛОГ НОУТБУКІВ</h2>
+            
+            <div class="products-container">
+                
+                <article class="product-card">
+                    <div class="badge">ТОП</div>
+                    <a href="#"><img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=300&q=80" alt="Laptop" class="product-img"></a>
+                    <h3><a href="#" style="color: inherit; text-decoration: none;">ASUS ROG Strix G16</a></h3>
+                    <p class="price">72 999 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                </article>
+
+                <article class="product-card">
+                    <a href="#"><img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&w=300&q=80" alt="Laptop" class="product-img"></a>
+                    <h3><a href="#" style="color: inherit; text-decoration: none;">Razer Blade 16 (RTX 4090)</a></h3>
+                    <p class="price">189 999 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                </article>
+
+                <article class="product-card">
+                    <div class="badge discount">-10%</div>
+                    <a href="#"><img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=300&q=80" alt="Laptop" class="product-img"></a>
+                    <h3><a href="#" style="color: inherit; text-decoration: none;">Dell XPS 15 OLED</a></h3>
+                    <p class="price">95 500 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=300&q=80" class="product-img">
+                    <h3>MacBook Pro 14 M3</h3>
+                    <p class="price">84 999 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="https://images.unsplash.com/photo-1544731612-de7f96afe55f?auto=format&fit=crop&w=300&q=80" class="product-img">
+                    <h3>Lenovo Legion Slim 5</h3>
+                    <p class="price">58 000 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=300&q=80" class="product-img">
+                    <h3>MSI Katana 17</h3>
+                    <p class="price">49 500 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&w=300&q=80" class="product-img">
+                    <h3>Acer Nitro V 15</h3>
+                    <p class="price">39 999 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=300&q=80" class="product-img">
+                    <h3>Gigabyte G5 KF</h3>
+                    <p class="price">42 000 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=300&q=80" class="product-img">
+                    <h3>HP Omen 16</h3>
+                    <p class="price">65 999 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=300&q=80" class="product-img">
+                    <h3>ASUS TUF Gaming A15</h3>
+                    <p class="price">47 000 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                </article>
+
+            </div>
+
+            <div class="pagination" style="display: flex; justify-content: center; gap: 10px; margin-top: 50px;">
+                <a href="#" class="page-btn active" style="background: #00d4ff; color: #000; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 1.1rem;">1</a>
+                <a href="#" class="page-btn" style="background: #1e1e24; color: #fff; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 1.1rem; border: 1px solid #333; transition: 0.3s;" onmouseover="this.style.borderColor='#00d4ff'" onmouseout="this.style.borderColor='#333'">2</a>
+                <a href="#" class="page-btn" style="background: #1e1e24; color: #fff; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 1.1rem; border: 1px solid #333; transition: 0.3s;" onmouseover="this.style.borderColor='#00d4ff'" onmouseout="this.style.borderColor='#333'">3</a>
+                <a href="#" class="page-btn" style="background: #1e1e24; color: #fff; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 1.1rem; border: 1px solid #333; transition: 0.3s;" onmouseover="this.style.borderColor='#00d4ff'" onmouseout="this.style.borderColor='#333'"><i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+            
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>TECH HARBOR</h3>
+                <p>Твій надійний партнер у світі високих технологій.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Клієнтам</h3>
+                <ul>
+                    <li><a href="#">Доставка і оплата</a></li>
+                    <li><a href="#">Гарантія та повернення</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Підписка</h3>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Ваш Email">
+                    <button type="button">Підписатися</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Tech Harbor. Усі права захищені. Розроблено для курсової роботи.</p>
+        </div>
+    </footer>
+
+<script>
+    function performSearch(event) {
+        event.preventDefault(); 
+        
+        const inputField = document.getElementById('search-input');
+        if (!inputField) return;
+        
+        const query = inputField.value.toLowerCase().trim();
+
+        if (query === "") {
+            alert("Будь ласка, введіть назву товару для пошуку.");
+            return false;
+        }
+
+        if (query.includes('ноут') || query.includes('laptop') || query.includes('asus') || query.includes('acer') || query.includes('lenovo')) {
+            window.location.href = 'catalog-laptops.html';
+        } 
+        else if (query.includes('відео') || query.includes('rtx') || query.includes('gpu') || query.includes('процесор') || query.includes('intel') || query.includes('amd')) {
+            window.location.href = 'catalog-components.html';
+        } 
+        else if (query.includes('миш') || query.includes('клавіа') || query.includes('навуш') || query.includes('монітор') || query.includes('перифер')) {
+            window.location.href = 'catalog-peripherals.html';
+        } 
+        else {
+            alert("На жаль, за запитом '" + query + "' нічого не знайдено. Спробуйте ввести: 'ноутбук', 'RTX' або 'миша'.");
+        }
+
+        return false;
+    }
+
+    // Оновлення лічильника кошика в шапці сайту
+    function updateHeaderCartCount() {
+        let cart = JSON.parse(localStorage.getItem('techCart')) || [];
+        let totalItems = 0;
+        cart.forEach(item => totalItems += item.qty);
+        let cartLink = document.getElementById('cart-link');
+        if(cartLink) {
+            cartLink.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> Кошик (${totalItems})`;
+        }
+    }
+
+    // Додавання товару
+    function addToCart(event) {
+        const card = event.target.closest('.product-card'); 
+        
+        if (!card) {
+            console.error("Не можу знайти картку товару!");
+            return;
+        }
+
+        const title = card.querySelector('h3') ? card.querySelector('h3').innerText : 'Невідомий товар';
+        
+        const priceElement = card.querySelector('.price');
+        let price = 0;
+        if (priceElement) {
+            // Розділяємо по символу ₴, щоб не тягнути стару ціну, якщо є знижка
+            let priceText = priceElement.innerText.split('₴')[0]; 
+            price = parseInt(priceText.replace(/\D/g, '')); 
+        }
+
+        const imgElement = card.querySelector('img');
+        const imgSrc = imgElement ? imgElement.src : '';
+
+        let cart = JSON.parse(localStorage.getItem('techCart')) || [];
+
+        let existingItem = cart.find(item => item.title === title);
+        if (existingItem) {
+            existingItem.qty += 1; 
+        } else {
+            cart.push({ title: title, price: price, qty: 1, image: imgSrc });
+        }
+
+        localStorage.setItem('techCart', JSON.stringify(cart));
+        
+        // Оновлюємо цифру в шапці після додавання
+        updateHeaderCartCount();
+
+        alert(`Товар "${title}" успішно додано в кошик!`);
+    }
+
+    // При завантаженні сторінки одразу рахуємо, скільки товарів у кошику
+    document.addEventListener('DOMContentLoaded', updateHeaderCartCount);
+</script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Комплектуючі | TECH HARBOR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Стилі для пагінації */
+        .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 40px; }
+        .page-btn { padding: 10px 15px; background: #1a1d21; color: #fff; border: 1px solid #333; border-radius: 5px; text-decoration: none; transition: 0.3s; font-weight: bold; }
+        .page-btn:hover, .page-btn.active { background: #00d4ff; color: #121418; border-color: #00d4ff; }
+        
+        /* Стилізація кастомних чекбоксів у фільтрах */
+        .checkbox-container { display: block; position: relative; padding-left: 30px; margin-bottom: 12px; cursor: pointer; font-size: 15px; color: #ccc; user-select: none; }
+        .checkbox-container input { position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0; }
+        .checkmark { position: absolute; top: 0; left: 0; height: 20px; width: 20px; background-color: #262a2e; border: 1px solid #555; border-radius: 4px; }
+        .checkbox-container:hover input ~ .checkmark { background-color: #333; }
+        .checkbox-container input:checked ~ .checkmark { background-color: #00d4ff; border-color: #00d4ff; }
+        .checkmark:after { content: ""; position: absolute; display: none; }
+        .checkbox-container input:checked ~ .checkmark:after { display: block; }
+        .checkbox-container .checkmark:after { left: 6px; top: 2px; width: 5px; height: 10px; border: solid #121418; border-width: 0 3px 3px 0; transform: rotate(45deg); }
+    </style>
+</head>
+<body class="tech-shop-theme">
+
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <span><i class="fa-solid fa-phone"></i> +38 (099) 123-45-67</span>
+            <span><i class="fa-solid fa-envelope"></i> info@techharbor.ua</span>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-main">
+            <div class="logo-container">
+                <h1><a href="index.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-microchip"></i> TECH HARBOR</a></h1>
+            </div>
+            <div class="header-icons">
+                <a href="profile.html"><i class="fa-solid fa-user"></i> Профіль</a>
+                <a href="cart.html" id="cart-link"><i class="fa-solid fa-cart-shopping"></i> Кошик (0)</a>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Головна</a>
+            <a href="catalog-laptops.html">Ноутбуки</a>
+            <a href="catalog-components.html" class="active">Комплектуючі</a>
+            <a href="catalog-peripherals.html">Периферія</a>
+            <a href="about.html">Про нас</a>
+            <a href="contacts.html">Контакти</a>
+        </nav>
+    </header>
+
+    <main>
+        <nav class="breadcrumbs">
+            <a href="index.html">Головна</a> > <span>Комплектуючі</span>
+        </nav>
+
+        <h2 class="section-title" style="text-align: left; margin-top: 0;">КОМПЛЕКТУЮЧІ ДЛЯ ПК</h2>
+
+        <div class="catalog-layout">
+            <aside class="sidebar-filters">
+                <div class="filter-group">
+                    <h4>Ціна (₴)</h4>
+                    <div class="price-inputs">
+                        <input type="number" placeholder="Від" min="0">
+                        <input type="number" placeholder="До">
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Категорія</h4>
+                    <label class="checkbox-container">Відеокарти
+                        <input type="checkbox" checked>
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Процесори
+                        <input type="checkbox" checked>
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Материнські плати
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Оперативна пам'ять
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Бренд</h4>
+                    <label class="checkbox-container">ASUS
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Gigabyte
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">MSI
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Intel
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">AMD
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <button class="button" style="width: 100%;">ЗАСТОСУВАТИ</button>
+            </aside>
+
+            <div class="catalog-content">
+                <div class="products-container" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                    
+                    <article class="product-card">
+                        <div class="badge">ТОП</div>
+                        <a href="#"><img src="Gigabyte GeForce RTX 4090 Gaming OC.jpg.jpg" alt="Laptop" class="product-img"></a>
+                        <h3><a href="product.html" style="color: inherit; text-decoration: none;">Gigabyte GeForce RTX 4090 Gaming OC</a></h3>
+                        <p class="price">75 999 ₴</p>
+                        <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                    </article>
+
+                    <article class="product-card">
+                        <a href="#"><img src="Intel Core i9-13900K 3.0(5.8)GHz.jpg" alt="Laptop" class="product-img"></a>
+                        <h3><a href="#" style="color: inherit; text-decoration: none;">Intel Core i9-13900K 3.0(5.8)GHz</a></h3>
+                        <p class="price">21 999 ₴</p>
+                        <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="badge discount">-10%</div>
+                        <a href="#"><img src="ASUS ROG Maximus Z790 Hero.jpg" alt="Laptop" class="product-img"></a>
+                        <h3><a href="#" style="color: inherit; text-decoration: none;">ASUS ROG Maximus Z790 Hero</a></h3>
+                        <p class="price">25 499 ₴ <del>28 300 ₴</del></p>
+                        <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                    </article>
+
+                    <article class="product-card">
+                        <a href="#"><img src="Kingston Fury DDR5 32GB 6000MHz.jpg" alt="Laptop" class="product-img"></a>
+                        <h3><a href="#" style="color: inherit; text-decoration: none;">Kingston Fury DDR5 32GB 6000MHz</a></h3>
+                        <p class="price">6 299 ₴</p>
+                        <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                    </article>
+
+                    <article class="product-card">
+                        <a href="#"><img src="MSI Radeon RX 7900 XTX Gaming Trio.jpg" alt="Laptop" class="product-img"></a>
+                        <h3><a href="#" style="color: inherit; text-decoration: none;">MSI Radeon RX 7900 XTX Gaming Trio</a></h3>
+                        <p class="price">46 999 ₴</p>
+                        <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                    </article>
+
+                    <article class="product-card">
+                        <a href="#"><img src="AMD Ryzen 9 7950X3D 4.2(5.7)GHz.jpg" alt="Laptop" class="product-img"></a>
+                        <h3><a href="#" style="color: inherit; text-decoration: none;">AMD Ryzen 9 7950X3D 4.2(5.7)GHz</a></h3>
+                        <p class="price">28 999 ₴</p>
+                        <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                    </article>
+
+                </div>
+
+                <div class="pagination">
+                    <a href="#" class="page-btn active">1</a>
+                    <a href="#" class="page-btn">2</a>
+                    <a href="#" class="page-btn">3</a>
+                    <a href="#" class="page-btn"><i class="fa-solid fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Tech Harbor. Усі права захищені.</p>
+        </div>
+    </footer>
+
+<script>
+    // Оновлення лічильника кошика в шапці сайту
+    function updateHeaderCartCount() {
+        let cart = JSON.parse(localStorage.getItem('techCart')) || [];
+        let totalItems = 0;
+        cart.forEach(item => totalItems += item.qty);
+        
+        let cartLink = document.getElementById('cart-link');
+        if (cartLink) {
+            cartLink.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> Кошик (${totalItems})`;
+        }
+    }
+
+    // Додавання товару
+    function addToCart(event) {
+        const card = event.target.closest('.product-card'); 
+        
+        if (!card) {
+            console.error("Не можу знайти картку товару!");
+            return;
+        }
+
+        const title = card.querySelector('h3') ? card.querySelector('h3').innerText : 'Невідомий товар';
+        
+        const priceElement = card.querySelector('.price');
+        let price = 0;
+        if (priceElement) {
+            // Розділяємо по символу ₴ і беремо тільки першу частину, щоб відсікти стару ціну у тегу <del>
+            let priceText = priceElement.innerText.split('₴')[0]; 
+            price = parseInt(priceText.replace(/\D/g, '')); 
+        }
+
+        const imgElement = card.querySelector('img');
+        const imgSrc = imgElement ? imgElement.src : '';
+
+        let cart = JSON.parse(localStorage.getItem('techCart')) || [];
+
+        let existingItem = cart.find(item => item.title === title);
+        if (existingItem) {
+            existingItem.qty += 1; 
+        } else {
+            cart.push({ title: title, price: price, qty: 1, image: imgSrc });
+        }
+
+        localStorage.setItem('techCart', JSON.stringify(cart));
+        
+        // Оновлюємо цифру в шапці
+        updateHeaderCartCount();
+
+        alert(`Товар "${title}" успішно додано в кошик!`);
+    }
+
+    // При завантаженні сторінки одразу рахуємо кількість
+    document.addEventListener('DOMContentLoaded', updateHeaderCartCount);
+</script>
+
+</body>
+</html>

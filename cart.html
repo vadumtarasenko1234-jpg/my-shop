@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформлення замовлення | TECH HARBOR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="tech-shop-theme">
+
+    <header>
+        <div class="header-main">
+            <div class="logo-container">
+                <h1><a href="index.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-microchip"></i> TECH HARBOR</a></h1>
+            </div>
+            
+            <div class="header-icons">
+                <a href="index.html">На головну</a>
+                <a href="catalog.html">В каталог</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="cart-page">
+        <h2 class="main-title" style="text-align: left; margin-bottom: 30px;">ОФОРМЛЕННЯ ЗАМОВЛЕННЯ</h2>
+
+        <div class="cart-layout">
+            <div class="cart-left-col">
+                
+                <section class="cart-items-section">
+                    <h3 class="section-subtitle"><i class="fa-solid fa-box-open"></i> Ваш кошик</h3>
+                    <table class="tech-table cart-table">
+                        <thead>
+                            <tr>
+                                <th>Товар</th>
+                                <th>Ціна</th>
+                                <th>К-сть</th>
+                                <th>Сума</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-tbody">
+                            </tbody>
+                    </table>
+                </section>
+
+                <section class="checkout-form-section">
+                    <h3 class="section-subtitle"><i class="fa-solid fa-address-card"></i> Контактні дані</h3>
+                    <form class="checkout-form" id="checkout-form" action="#" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">Ім'я *</label>
+                                <input type="text" id="firstName" name="firstName" required placeholder="Введіть ім'я">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Прізвище *</label>
+                                <input type="text" id="lastName" name="lastName" required placeholder="Введіть прізвище">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Телефон *</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+38 (0__) ___-__-__">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required placeholder="example@mail.com">
+                            </div>
+                        </div>
+
+                        <h3 class="section-subtitle" style="margin-top: 30px;"><i class="fa-solid fa-truck"></i> Доставка</h3>
+                        <div class="form-group">
+                            <label for="deliveryMethod">Спосіб доставки</label>
+                            <select id="deliveryMethod" name="deliveryMethod">
+                                <option value="nova_poshta">Нова Пошта (У відділення)</option>
+                                <option value="courier">Кур'єр Нової Пошти</option>
+                                <option value="pickup">Самовивіз з магазину (м. Київ)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">Місто *</label>
+                            <input type="text" id="city" name="city" required placeholder="Наприклад: Київ">
+                        </div>
+
+                        <h3 class="section-subtitle" style="margin-top: 30px;"><i class="fa-solid fa-credit-card"></i> Оплата</h3>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="payment" value="card" checked>
+                                Оплата карткою онлайн (Visa/Mastercard)
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="payment" value="cash">
+                                Оплата при отриманні (Накладений платіж)
+                            </label>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 20px;">
+                            <label for="comments">Коментар до замовлення</label>
+                            <textarea id="comments" name="comments" rows="4" placeholder="Ваші побажання..."></textarea>
+                        </div>
+                    </form>
+                </section>
+            </div>
+
+            <aside class="cart-summary-col">
+                <div class="summary-box">
+                    <h3>РАЗОМ ДО СПЛАТИ</h3>
+                    <div class="summary-row">
+                        <span id="summary-items-count">Товари (0 шт.)</span>
+                        <span id="summary-items-price">0 ₴</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Доставка</span>
+                        <span>За тарифами перевізника</span>
+                    </div>
+                    <div class="summary-row total-row">
+                        <span>СУМА:</span>
+                        <span class="total-price" id="summary-total-price">0 ₴</span>
+                    </div>
+                    
+                    <button type="button" class="button button-large submit-order-btn" style="width: 100%; text-align: center; justify-content: center;" onclick="submitOrder()">
+                        ПІДТВЕРДИТИ ЗАМОВЛЕННЯ
+                    </button>
+                    
+                    <p class="summary-note" style="margin-top: 15px; font-size: 0.9rem; color: #888;">
+                        <i class="fa-solid fa-shield-halved"></i> Ваші дані надійно захищені шифруванням.
+                    </p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer-bottom" style="margin-top: 50px; text-align: center; padding: 20px 0; border-top: 1px solid #333;">
+        <p>&copy; 2024 Tech Harbor. Усі права захищені.</p>
+    </footer>
+
+<script>
+    // Стартові демо-товари (якщо заходимо вперше)
+    const defaultItems = [
+        {
+            title: 'Відеокарта Gigabyte GeForce RTX 4090 Gaming OC 24GB',
+            price: 75999,
+            qty: 1,
+            image: 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80'
+        },
+        {
+            title: 'Процесор Intel Core i9-13900K 3.0(5.8)GHz 36MB',
+            price: 21999,
+            qty: 1,
+            image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80'
+        }
+    ];
+
+    // Ініціалізація та ГОЛОВНА ЛОГІКА КОШИКА
+    function initCart() {
+        // Перевіряємо чи є збережений кошик, якщо ні — записуємо демо-товари
+        if (!localStorage.getItem('techCart')) {
+            localStorage.setItem('techCart', JSON.stringify(defaultItems));
+        }
+        renderCart();
+    }
+
+    function renderCart() {
+        const tbody = document.getElementById('cart-tbody');
+        const cart = JSON.parse(localStorage.getItem('techCart')) || [];
+        
+        // Якщо кошик порожній
+        if (cart.length === 0) {
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="5" style="text-align: center; padding: 40px; font-size: 1.2rem; color: #888;">
+                        Кошик порожній 😔<br>
+                        <a href="catalog-components.html" style="color: #00d4ff; text-decoration: underline; display: inline-block; margin-top: 15px;">Перейти до покупок</a>
+                    </td>
+                </tr>
+            `;
+            updateSummary(0, 0);
+            return;
+        }
+
+        let html = '';
+        let totalSum = 0;
+        let totalItems = 0;
+
+        // Малюємо кожен товар у таблиці
+        cart.forEach((item, index) => {
+            let itemTotal = item.price * item.qty;
+            totalSum += itemTotal;
+            totalItems += item.qty;
+            
+            let img = item.image ? item.image : 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=100';
+
+            html += `
+            <tr>
+                <td class="cart-product-info" style="display: flex; align-items: center; gap: 15px; text-align: left;">
+                    <img src="${img}" alt="${item.title}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 4px;">
+                    <span style="font-weight: bold; color: #fff;">${item.title}</span>
+                </td>
+                <td style="color: #ccc;">${item.price.toLocaleString('uk-UA')} ₴</td>
+                <td>
+                    <input type="number" value="${item.qty}" min="1" class="qty-input-small" onchange="updateQty(${index}, this.value)" style="width: 60px; padding: 5px; text-align: center; background: #222; color: #fff; border: 1px solid #444; border-radius: 4px;">
+                </td>
+                <td class="cart-item-total" style="font-weight: bold; color: #00d4ff;">${itemTotal.toLocaleString('uk-UA')} ₴</td>
+                <td>
+                    <button class="remove-btn" onclick="removeItem(${index})" style="background: none; border: none; color: #ff4d4d; cursor: pointer; font-size: 1.2rem; transition: 0.3s;" onmouseover="this.style.color='#ff1a1a'" onmouseout="this.style.color='#ff4d4d'">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+            `;
+        });
+
+        tbody.innerHTML = html;
+        updateSummary(totalItems, totalSum);
+    }
+
+    // Оновлення цифр справа (в summary-box)
+    function updateSummary(items, sum) {
+        document.getElementById('summary-items-count').innerText = `Товари (${items} шт.)`;
+        document.getElementById('summary-items-price').innerText = sum.toLocaleString('uk-UA') + " ₴";
+        document.getElementById('summary-total-price').innerText = sum.toLocaleString('uk-UA') + " ₴";
+    }
+
+    // Зміна кількості товару
+    function updateQty(index, qty) {
+        let cart = JSON.parse(localStorage.getItem('techCart')) || [];
+        qty = parseInt(qty);
+        if (qty < 1 || isNaN(qty)) qty = 1;
+        cart[index].qty = qty;
+        localStorage.setItem('techCart', JSON.stringify(cart));
+        renderCart();
+    }
+
+    // Видалення товару
+    function removeItem(index) {
+        if (confirm('Видалити цей товар з кошика?')) {
+            let cart = JSON.parse(localStorage.getItem('techCart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('techCart', JSON.stringify(cart));
+            renderCart();
+        }
+    }
+
+    // Обробка натискання "Підтвердити замовлення"
+    function submitOrder() {
+        let cart = JSON.parse(localStorage.getItem('techCart')) || [];
+        if (cart.length === 0) {
+            alert("Ваш кошик порожній! Додайте товари перед оформленням.");
+            return;
+        }
+        
+        // Перевірка, чи заповнена форма з контактами
+        const form = document.getElementById('checkout-form');
+        if (!form.checkValidity()) {
+            form.reportValidity(); // Покаже стандартні підказки браузера
+            return;
+        }
+
+        alert("Замовлення успішно оформлено! Дякуємо за покупку.");
+        
+        // Очищаємо кошик після покупки, щоб можна було тестувати заново
+        localStorage.removeItem('techCart'); 
+        window.location.href = "index.html";
+    } 
+
+    // Запускаємо ініціалізацію одразу при завантаженні сторінки
+    document.addEventListener('DOMContentLoaded', initCart);
+</script>
+</body>
+</html>

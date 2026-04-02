@@ -1,0 +1,116 @@
+\<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Периферія | TECH HARBOR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="tech-shop-theme">
+
+    <header>
+        <div class="header-main">
+            <div class="logo-container">
+                <h1><a href="index.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-microchip"></i> TECH HARBOR</a></h1>
+            </div>
+            <div class="header-icons">
+                <a href="index.html">На головну</a>
+                <a href="cart.html" id="cart-link"><i class="fa-solid fa-cart-shopping"></i> Кошик (0)</a>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Головна</a>
+            <a href="catalog-laptops.html">Ноутбуки</a>
+            <a href="catalog-components.html">Комплектуючі</a>
+            <a href="catalog-peripherals.html" class="active">Периферія</a>
+            <a href="about.html">Про нас</a>
+            <a href="contacts.html">Контакти</a>
+        </nav>
+    </header>
+
+    <main class="catalog-layout">
+        <aside class="sidebar-filters">
+            <h3>Фільтри</h3>
+            <div class="filter-group">
+                <h4>Категорія</h4>
+                <label><input type="checkbox"> Миші</label>
+                <label><input type="checkbox"> Клавіатури</label>
+                <label><input type="checkbox"> Навушники</label>
+                <label><input type="checkbox"> Монітори</label>
+            </div>
+            <button class="button" style="width: 100%; margin-top: 15px;">Застосувати</button>
+        </aside>
+
+        <section class="catalog-content">
+            <h2 class="section-title">ПЕРИФЕРІЯ</h2>
+            
+            <div class="products-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                
+                <article class="product-card">
+                    <div class="badge">ТОП</div>
+                    <a href="product-keyboard.html"><img src="Клавіатура Keychron Q1 Pro.jpg" alt="Клавіатура" class="product-img"></a>
+                    <h3><a href="product-keyboard.html" style="color: inherit; text-decoration: none;">Клавіатура Keychron Q1 Pro</a></h3>
+                    <p class="price">8 500 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%;">В кошик</button>
+                </article>
+
+                <article class="product-card">
+                    <a href="product-mouse.html"><img src="Миша Logitech G Pro X Superlight.jpg" alt="Миша" class="product-img"></a>
+                    <h3><a href="product-mouse.html" style="color: inherit; text-decoration: none;">Миша Logitech G Pro X Superlight</a></h3>
+                    <p class="price">5 999 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%;">В кошик</button>
+                </article>
+
+                <article class="product-card">
+                    <a href="product-headphones.html"><img src="Навушники SteelSeries Arctis Nova Pro.jpg" alt="Навушники" class="product-img"></a>
+                    <h3><a href="product-headphones.html" style="color: inherit; text-decoration: none;">Навушники SteelSeries Arctis Nova Pro</a></h3>
+                    <p class="price">13 999 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%;">В кошик</button>
+                </article>
+
+                <article class="product-card">
+                    <div class="badge discount">-20%</div>
+                    <a href="product-monitor.html"><img src="Монітор Samsung Odyssey G9 49.jpg" alt="Монітор" class="product-img"></a>
+                    <h3><a href="product-monitor.html" style="color: inherit; text-decoration: none;">Монітор Samsung Odyssey G9 49"</a></h3>
+                    <p class="price">55 999 ₴ <del>69 999 ₴</del></p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%;">В кошик</button>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-bottom">
+        <p>&copy; 2024 Tech Harbor. Усі права захищені.</p>
+    </footer>
+
+    <script>
+        function updateHeaderCartCount() {
+            let cart = JSON.parse(localStorage.getItem('techCart')) || [];
+            let totalItems = 0;
+            cart.forEach(item => totalItems += item.qty);
+            let cartLink = document.getElementById('cart-link');
+            if (cartLink) cartLink.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> Кошик (${totalItems})`;
+        }
+
+        function addToCart(event) {
+            const card = event.target.closest('.product-card');
+            const title = card.querySelector('h3').innerText;
+            const price = parseInt(card.querySelector('.price').innerText.replace(/\D/g, ''));
+            const imgSrc = card.querySelector('img').src;
+
+            let cart = JSON.parse(localStorage.getItem('techCart')) || [];
+            let existingItem = cart.find(item => item.title === title);
+            if (existingItem) { existingItem.qty += 1; } 
+            else { cart.push({ title: title, price: price, qty: 1, image: imgSrc }); }
+
+            localStorage.setItem('techCart', JSON.stringify(cart));
+            updateHeaderCartCount();
+            alert(`"${title}" додано в кошик!`);
+        }
+        document.addEventListener('DOMContentLoaded', updateHeaderCartCount);
+    </script>
+</body>
+</html>

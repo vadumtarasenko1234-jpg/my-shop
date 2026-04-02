@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Периферія | TECH HARBOR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="tech-shop-theme">
+
+    <header>
+        <div class="header-main">
+            <div class="logo-container">
+                <h1><a href="index.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-microchip"></i> TECH HARBOR</a></h1>
+            </div>
+            <div class="header-icons">
+                <a href="index.html">На головну</a>
+                <a href="cart.html" id="cart-link"><i class="fa-solid fa-cart-shopping"></i> Кошик (0)</a>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Головна</a>
+            <a href="catalog-laptops.html">Ноутбуки</a>
+            <a href="catalog-components.html">Комплектуючі</a>
+            <a href="catalog-peripherals.html" class="active">Периферія</a>
+            <a href="about.html">Про нас</a>
+            <a href="contacts.html">Контакти</a>
+        </nav>
+    </header>
+
+    <main class="catalog-layout">
+        <aside class="sidebar-filters">
+            <h3>Фільтри</h3>
+            
+            <div class="filter-group">
+                <h4>Категорія</h4>
+                <label><input type="checkbox"> Миші</label>
+                <label><input type="checkbox"> Клавіатури</label>
+                <label><input type="checkbox"> Навушники</label>
+                <label><input type="checkbox"> Монітори</label>
+            </div>
+
+            <div class="filter-group">
+                <h4>Бренд</h4>
+                <label><input type="checkbox"> Logitech</label>
+                <label><input type="checkbox"> Razer</label>
+                <label><input type="checkbox"> HyperX</label>
+                <label><input type="checkbox"> SteelSeries</label>
+            </div>
+
+            <button class="button" style="width: 100%; margin-top: 15px;">Застосувати</button>
+        </aside>
+
+        <section class="catalog-content">
+            <h2 class="section-title" style="margin-top: 0; text-align: left;">ПЕРИФЕРІЯ</h2>
+            
+            <div class="products-container" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <article class="product-card">
+                    <div class="badge">ТОП</div>
+                    <a href="#"><img src="Клавіатура Keychron Q1 Pro.jpg" alt="Laptop" class="product-img"></a>
+                    <h3><a href="product.html" style="color: inherit; text-decoration: none;">Клавіатура Keychron Q1 Pro</a></h3>
+                    <p class="price">8 500 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                </article>
+                <article class="product-card">
+                    <a href="#"><img src="Миша Logitech G Pro X Superlight.jpg" alt="Laptop" class="product-img"></a>
+                    <h3><a href="product.html" style="color: inherit; text-decoration: none;">Миша Logitech G Pro X Superlight</a></h3>
+                    <p class="price">5 999 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                </article>
+                <article class="product-card">
+                    <a href="#"><img src="Навушники SteelSeries Arctis Nova Pro.jpg" alt="Laptop" class="product-img"></a>
+                    <h3><a href="product.html" style="color: inherit; text-decoration: none;">Навушники SteelSeries Arctis Nova Pro</a></h3>
+                    <p class="price">13 999 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                </article>
+                <article class="product-card">
+                    <div class="badge discount">-20%</div>
+                    <a href="#"><img src="Монітор Samsung Odyssey G9 49.jpg" alt="Laptop" class="product-img"></a>
+                    <h3><a href="product.html" style="color: inherit; text-decoration: none;">Монітор Samsung Odyssey G9 49"</a></h3>
+                    <p class="price">55 999 ₴ <del>69 999 ₴</del></p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                </article>
+                <article class="product-card">
+                    <a href="#"><img src="Клавіатура Razer Huntsman V3 Pro.jpg" alt="Laptop" class="product-img"></a>
+                    <h3><a href="product.html" style="color: inherit; text-decoration: none;">Клавіатура Razer Huntsman V3 Pro</a></h3>
+                    <p class="price">10 499 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                </article>
+                <article class="product-card">
+                    <a href="#"><img src="Миша Razer DeathAdder V3 Pro.jpg" alt="Laptop" class="product-img"></a>
+                    <h3><a href="product.html" style="color: inherit; text-decoration: none;">Миша Razer DeathAdder V3 Pro</a></h3>
+                    <p class="price">6 200 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                </article>
+                <article class="product-card">
+                    <a href="#"><img src="Навушники HyperX Cloud III Wireless.jpg" alt="Laptop" class="product-img"></a>
+                    <h3><a href="product.html" style="color: inherit; text-decoration: none;">Навушники HyperX Cloud III Wireless</a></h3>
+                    <p class="price">6 499 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                </article>
+                <article class="product-card">
+                    <a href="#"><img src="Монітор LG UltraGear 27 OLED.jpg" alt="Laptop" class="product-img"></a>
+                    <h3><a href="product.html" style="color: inherit; text-decoration: none;">Монітор LG UltraGear 27" OLED</a></h3>
+                    <p class="price">38 500 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                </article>
+                <article class="product-card">
+                    <a href="#"><img src="Клавіатура ASUS ROG Azoth.jpg" alt="Laptop" class="product-img"></a>
+                    <h3><a href="product.html" style="color: inherit; text-decoration: none;">Клавіатура ASUS ROG Azoth</a></h3>
+                    <p class="price">12 999 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                </article>
+                <article class="product-card">
+                    <a href="#"><img src="Миша ASUS ROG Harpe Ace.jpg" alt="Laptop" class="product-img"></a>
+                    <h3><a href="product.html" style="color: inherit; text-decoration: none;">Миша ASUS ROG Harpe Ace</a></h3>
+                    <p class="price">5 500 ₴</p>
+                    <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-bottom">
+        <p>&copy; 2024 Tech Harbor. Усі права захищені.</p>
+    </footer>
+
+<script>
+    // Оновлення лічильника кошика
+    function updateHeaderCartCount() {
+        let cart = JSON.parse(localStorage.getItem('techCart')) || [];
+        let totalItems = 0;
+        cart.forEach(item => totalItems += item.qty);
+        
+        let cartLink = document.getElementById('cart-link');
+        if (cartLink) {
+            cartLink.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> Кошик (${totalItems})`;
+        }
+    }
+
+    // Пошук (з вашого коду)
+    function performSearch(event) {
+        event.preventDefault(); 
+        const inputField = document.getElementById('search-input');
+        if (!inputField) return;
+        
+        const query = inputField.value.toLowerCase().trim();
+
+        if (query === "") {
+            alert("Будь ласка, введіть назву товару для пошуку.");
+            return false;
+        }
+
+        if (query.includes('ноут') || query.includes('laptop') || query.includes('asus') || query.includes('acer') || query.includes('lenovo')) {
+            window.location.href = 'catalog-laptops.html';
+        } else if (query.includes('відео') || query.includes('rtx') || query.includes('gpu') || query.includes('процесор') || query.includes('intel') || query.includes('amd')) {
+            window.location.href = 'catalog-components.html';
+        } else if (query.includes('миш') || query.includes('клавіа') || query.includes('навуш') || query.includes('монітор') || query.includes('перифер')) {
+            window.location.href = 'catalog-peripherals.html';
+        } else {
+            alert("На жаль, за запитом '" + query + "' нічого не знайдено. Спробуйте ввести: 'ноутбук', 'RTX' або 'миша'.");
+        }
+        return false;
+    }
+
+    // Додавання до кошика
+    function addToCart(event) {
+        const card = event.target.closest('.product-card'); 
+        
+        if (!card) {
+            console.error("Не можу знайти картку товару!");
+            return;
+        }
+
+        const title = card.querySelector('h3') ? card.querySelector('h3').innerText : 'Невідомий товар';
+        
+        const priceElement = card.querySelector('.price');
+        let price = 0;
+        if (priceElement) {
+            // Розділяємо по символу ₴, щоб ігнорувати стару ціну в <del>
+            let priceText = priceElement.innerText.split('₴')[0]; 
+            price = parseInt(priceText.replace(/\D/g, '')); 
+        }
+
+        const imgElement = card.querySelector('img');
+        const imgSrc = imgElement ? imgElement.src : '';
+
+        let cart = JSON.parse(localStorage.getItem('techCart')) || [];
+
+        let existingItem = cart.find(item => item.title === title);
+        if (existingItem) {
+            existingItem.qty += 1; 
+        } else {
+            cart.push({ title: title, price: price, qty: 1, image: imgSrc });
+        }
+
+        localStorage.setItem('techCart', JSON.stringify(cart));
+        
+        updateHeaderCartCount();
+
+        alert(`Товар "${title}" успішно додано в кошик!`);
+    }
+
+    // Рахуємо кількість товарів при завантаженні сторінки
+    document.addEventListener('DOMContentLoaded', updateHeaderCartCount);
+</script>
+</body>
+</html>
