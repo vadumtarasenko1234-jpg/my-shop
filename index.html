@@ -7,6 +7,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .toast-notification {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #00d4ff; /* Фірмовий колір */
+            color: #1a1d21; /* Темний текст для контрасту */
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px 20px;
+            position: fixed;
+            z-index: 9999;
+            right: 30px;
+            bottom: 30px;
+            font-size: 16px;
+            font-weight: 700;
+            box-shadow: 0px 5px 15px rgba(0, 212, 255, 0.4);
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            transform: translateY(20px);
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .toast-notification.show {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body class="tech-shop-theme">
 
@@ -34,14 +63,14 @@
             </div>
         </div>
 
-<nav>
-    <a href="index.html" class="active">Головна</a>
-    <a href="catalog-laptops.html">Ноутбуки</a>
-    <a href="catalog-components.html">Комплектуючі</a>
-    <a href="catalog-peripherals.html">Периферія</a>
-    <a href="about.html">Про нас</a>
-    <a href="contacts.html">Контакти</a>
-</nav>
+        <nav>
+            <a href="index.html" class="active">Головна</a>
+            <a href="catalog-laptops.html">Ноутбуки</a>
+            <a href="catalog-components.html">Комплектуючі</a>
+            <a href="catalog-peripherals.html">Периферія</a>
+            <a href="about.html">Про нас</a>
+            <a href="contacts.html">Контакти</a>
+        </nav>
     </header>
 
     <main>
@@ -56,23 +85,23 @@
         <section class="categories-section">
             <h2 class="section-title">КАТЕГОРІЇ ТОВАРІВ</h2>
             <div class="categories-grid">
-    <a href="catalog.html" style="text-decoration: none; color: inherit;" class="category-card">
-        <i class="fa-solid fa-desktop fa-3x"></i>
-        <h3>Готові ПК</h3>
-    </a>
-    <a href="catalog-laptops.html" style="text-decoration: none; color: inherit;" class="category-card">
-        <i class="fa-solid fa-laptop fa-3x"></i>
-        <h3>Ноутбуки</h3>
-    </a>
-    <a href="catalog-components.html" style="text-decoration: none; color: inherit;" class="category-card">
-        <i class="fa-solid fa-memory fa-3x"></i>
-        <h3>Комплектуючі</h3>
-    </a>
-    <a href="catalog-peripherals.html" style="text-decoration: none; color: inherit;" class="category-card">
-        <i class="fa-solid fa-headphones fa-3x"></i>
-        <h3>Периферія</h3>
-    </a>
-</div>
+                <a href="catalog.html" style="text-decoration: none; color: inherit;" class="category-card">
+                    <i class="fa-solid fa-desktop fa-3x"></i>
+                    <h3>Готові ПК</h3>
+                </a>
+                <a href="catalog-laptops.html" style="text-decoration: none; color: inherit;" class="category-card">
+                    <i class="fa-solid fa-laptop fa-3x"></i>
+                    <h3>Ноутбуки</h3>
+                </a>
+                <a href="catalog-components.html" style="text-decoration: none; color: inherit;" class="category-card">
+                    <i class="fa-solid fa-memory fa-3x"></i>
+                    <h3>Комплектуючі</h3>
+                </a>
+                <a href="catalog-peripherals.html" style="text-decoration: none; color: inherit;" class="category-card">
+                    <i class="fa-solid fa-headphones fa-3x"></i>
+                    <h3>Периферія</h3>
+                </a>
+            </div>
         </section>
 
         <section class="products-section">
@@ -155,8 +184,11 @@
             <p>&copy; 2024 Tech Harbor. Усі права захищені. Розроблено для курсової роботи.</p>
         </div>
     </footer>
+
+    <div id="custom-toast" class="toast-notification"></div>
+
 <script>
-// Твоя функція пошуку
+// Функція пошуку
 function performSearch(event) {
     event.preventDefault(); 
     const inputField = document.getElementById('search-input');
@@ -165,7 +197,7 @@ function performSearch(event) {
     const query = inputField.value.toLowerCase().trim();
 
     if (query === "") {
-        alert("Будь ласка, введіть назву товару для пошуку.");
+        showCustomToast("Будь ласка, введіть назву товару для пошуку.");
         return false;
     }
 
@@ -179,13 +211,13 @@ function performSearch(event) {
         window.location.href = 'catalog-peripherals.html';
     } 
     else {
-        alert("На жаль, за запитом '" + query + "' нічого не знайдено. Спробуйте ввести: 'ноутбук', 'RTX' або 'миша'.");
+        showCustomToast("На жаль, за запитом нічого не знайдено.");
     }
 
     return false;
 }
 
-// ВИПРАВЛЕНО: Додано функції для роботи кошика
+// Оновлення лічильника кошика
 function updateCartCount() {
     let cart = JSON.parse(localStorage.getItem('techCart')) || [];
     let cartCountElement = document.getElementById('cart-count');
@@ -194,6 +226,19 @@ function updateCartCount() {
     }
 }
 
+// Красива функція виклику повідомлення (Toast)
+function showCustomToast(message) {
+    const toast = document.getElementById("custom-toast");
+    toast.innerHTML = '<i class="fa-solid fa-check-circle"></i> ' + message;
+    toast.classList.add("show");
+    
+    // Ховаємо повідомлення через 3 секунди
+    setTimeout(function() {
+        toast.classList.remove("show");
+    }, 3000);
+}
+
+// Додавання товару в кошик із ГАРНОЮ РЕАКЦІЄЮ
 function addToCart(productName, productPrice) {
     let cart = JSON.parse(localStorage.getItem('techCart')) || [];
     cart.push({
@@ -202,7 +247,9 @@ function addToCart(productName, productPrice) {
     });
     localStorage.setItem('techCart', JSON.stringify(cart));
     updateCartCount();
-    alert(productName + " успішно додано в кошик!");
+    
+    // Замість alert() викликаємо нашу красиву анімацію
+    showCustomToast(productName + " успішно додано в кошик!");
 }
 
 // Оновлюємо лічильник при завантаженні сторінки
