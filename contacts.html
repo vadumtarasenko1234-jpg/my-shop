@@ -13,7 +13,12 @@
         .contacts-info h2, .contacts-form h2 { color: #00d4ff; font-family: 'Oswald', sans-serif; margin-bottom: 25px; }
         .contact-item { display: flex; gap: 15px; margin-bottom: 20px; color: #ccc; align-items: center; font-size: 1.1rem; }
         .contact-item i { color: #00d4ff; font-size: 1.5rem; width: 30px; text-align: center; }
-        .map-placeholder { width: 100%; height: 200px; background-color: #090a0c; border: 1px dashed #555; display: flex; align-items: center; justify-content: center; color: #666; margin-top: 20px; border-radius: 5px; }
+        
+        /* Стилі для справжньої Google Карти */
+        .map-container { margin-top: 20px; }
+        .map-container iframe { width: 100%; height: 250px; border-radius: 8px; border: 2px solid #333; transition: border-color 0.3s; }
+        .map-container iframe:hover { border-color: #00d4ff; }
+        
         .c-form-group { margin-bottom: 15px; }
         .c-form-group input, .c-form-group textarea { width: 100%; padding: 12px; background-color: #090a0c; border: 1px solid #333; color: #fff; border-radius: 5px; outline: none; }
         .c-form-group input:focus, .c-form-group textarea:focus { border-color: #00d4ff; }
@@ -32,7 +37,7 @@
         </div>
         <nav>
             <a href="index.html">Головна</a>
-            <a href="catalog.html">Каталог</a>
+            <a href="catalog-components.html">Каталог</a>
             <a href="about.html">Про нас</a>
             <a href="contacts.html" class="active">Контакти</a>
         </nav>
@@ -59,8 +64,8 @@
                     <span>Пн-Нд: 10:00 - 20:00 (Без вихідних)</span>
                 </div>
                 
-                <div class="map-placeholder">
-                    [Тут може бути інтерактивна Google Карта]
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.485141077793!2d30.5206263!3d50.4506979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce50f882194d%3A0xc548c7bd75eb3798!2z0KLQpiAi0JPQu9C-0LHRg9GBIg!5e0!3m2!1suk!2sua!4v1700000000000!5m2!1suk!2sua" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
 
@@ -86,7 +91,7 @@
     </main>
 
     <footer class="footer-bottom">
-        <p>&copy; 2024 Tech Harbor. Усі права захищені.</p>
+        <p>© 2024 Tech Harbor. Усі права захищені.</p>
     </footer>
 
 </body>

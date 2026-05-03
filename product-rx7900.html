@@ -9,24 +9,18 @@
     <link rel="stylesheet" href="style.css">
     
     <style>
-        /* Стилі для кастомного вікна підтвердження видалення */
+        /* Стилі для кастомного вікна підтвердження */
         .modal-overlay { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
             background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px);
             display: flex; justify-content: center; align-items: center; 
-            z-index: 2000; opacity: 0; visibility: hidden; transition: 0.3s; 
-        }
-        .modal-overlay.active {
-            opacity: 1; visibility: visible;
+            z-index: 2000; opacity: 0; transition: opacity 0.3s; 
         }
         .modal-content { 
             background: #1a1d21; padding: 30px; border-radius: 12px; border: 1px solid #333; 
             text-align: center; max-width: 400px; width: 90%; 
-            transform: translateY(-20px); transition: 0.3s; 
+            transform: translateY(-20px); transition: transform 0.3s; 
             box-shadow: 0 15px 40px rgba(0,0,0,0.8); 
-        }
-        .modal-overlay.active .modal-content {
-            transform: translateY(0);
         }
         .modal-content h3 { color: #fff; margin-bottom: 15px; font-family: 'Oswald', sans-serif; font-size: 1.5rem; }
         .modal-content p { color: #ccc; margin-bottom: 25px; font-size: 1.1rem; }
@@ -163,13 +157,13 @@
         </div>
     </main>
 
-    <div id="custom-confirm" class="modal-overlay">
+    <div id="custom-confirm" class="modal-overlay" style="display: none;">
         <div class="modal-content">
             <h3><i class="fa-solid fa-triangle-exclamation" style="color: #ff4757;"></i> Видалення товару</h3>
             <p>Ви впевнені, що хочете видалити цей товар з кошика?</p>
             <div class="modal-buttons">
                 <button class="modal-btn cancel-btn" onclick="closeConfirm()">Скасувати</button>
-                <button class="modal-btn delete-btn" onclick="executeRemove()">Видалити</button>
+                <button class="modal-btn delete-btn" id="confirm-delete-btn">Видалити</button>
             </div>
         </div>
     </div>
@@ -268,19 +262,33 @@
         renderCart();
     }
 
-    // --- ЛОГІКА НАШОГО ВІКНА ВИДАЛЕННЯ ---
+    // --- НОВА ЛОГІКА ВИДАЛЕННЯ З МОДАЛЬНИМ ВІКНОМ ---
     let itemToDeleteIndex = null;
 
     function askRemoveItem(index) {
         itemToDeleteIndex = index;
         const modal = document.getElementById('custom-confirm');
-        modal.classList.add('active'); // Показуємо вікно
+        modal.style.display = 'flex';
+        
+        setTimeout(() => {
+            modal.style.opacity = '1';
+            modal.querySelector('.modal-content').style.transform = 'translateY(0)';
+        }, 10);
+
+        document.getElementById('confirm-delete-btn').onclick = function() {
+            executeRemove();
+        };
     }
 
     function closeConfirm() {
         const modal = document.getElementById('custom-confirm');
-        modal.classList.remove('active'); // Ховаємо вікно
-        itemToDeleteIndex = null;
+        modal.style.opacity = '0';
+        modal.querySelector('.modal-content').style.transform = 'translateY(-20px)';
+        
+        setTimeout(() => {
+            modal.style.display = 'none';
+            itemToDeleteIndex = null;
+        }, 300);
     }
 
     function executeRemove() {
@@ -289,10 +297,10 @@
             cart.splice(itemToDeleteIndex, 1);
             localStorage.setItem('techCart', JSON.stringify(cart));
             renderCart();
-            closeConfirm(); // Закриваємо вікно після видалення
+            closeConfirm();
         }
     }
-    // ---------------------------------------
+    // ------------------------------------------------
 
     function submitOrder() {
         let cart = JSON.parse(localStorage.getItem('techCart')) || [];

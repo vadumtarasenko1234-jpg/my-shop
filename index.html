@@ -30,7 +30,7 @@
 
             <div class="header-icons">
                 <a href="profile.html"><i class="fa-solid fa-user"></i> Профіль</a>
-                <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Кошик (1)</a>
+                <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Кошик (<span id="cart-count">0</span>)</a>
             </div>
         </div>
 
@@ -80,25 +80,25 @@
             <div class="products-container">
                 <article class="product-card">
                     <div class="badge">ТОП</div>
-                    <a href="product.html"><img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Процесор" class="product-img"></a>
-                    <h3><a href="product.html" style="color: inherit; text-decoration: none;">Core i9-13900K</a></h3>
+                    <a href="product-i9.html"><img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Процесор" class="product-img"></a>
+                    <h3><a href="product-i9.html" style="color: inherit; text-decoration: none;">Core i9-13900K</a></h3>
                     <p class="price">21 999 ₴</p>
-                    <a href="cart.html" class="button">В кошик</a>
+                    <button class="button" onclick="addToCart('Core i9-13900K', 21999)">В кошик</button>
                 </article>
 
                 <article class="product-card">
-                    <a href="product.html"><img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Відеокарта" class="product-img"></a>
-                    <h3><a href="product.html" style="color: inherit; text-decoration: none;">GeForce RTX 4090</a></h3>
+                    <a href="product-rtx.html"><img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Відеокарта" class="product-img"></a>
+                    <h3><a href="product-rtx.html" style="color: inherit; text-decoration: none;">GeForce RTX 4090</a></h3>
                     <p class="price">75 999 ₴</p>
-                    <a href="cart.html" class="button">В кошик</a>
+                    <button class="button" onclick="addToCart('GeForce RTX 4090', 75999)">В кошик</button>
                 </article>
 
                 <article class="product-card">
                     <div class="badge discount">-15%</div>
-                    <a href="product.html"><img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Ноутбук" class="product-img"></a>
-                    <h3><a href="product.html" style="color: inherit; text-decoration: none;">Razer Blade 16</a></h3>
+                    <a href="product-razer.html"><img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Ноутбук" class="product-img"></a>
+                    <h3><a href="product-razer.html" style="color: inherit; text-decoration: none;">Razer Blade 16</a></h3>
                     <p class="price">67 999 ₴ <del>79 999 ₴</del></p>
-                    <a href="cart.html" class="button">В кошик</a>
+                    <button class="button" onclick="addToCart('Razer Blade 16', 67999)">В кошик</button>
                 </article>
             </div>
         </section>
@@ -156,22 +156,19 @@
         </div>
     </footer>
 <script>
+// Твоя функція пошуку
 function performSearch(event) {
-    event.preventDefault(); // Зупиняємо перезавантаження сторінки
-    
-    // Отримуємо текст із поля, видаляємо зайві пробіли та переводимо в нижній регістр
+    event.preventDefault(); 
     const inputField = document.getElementById('search-input');
     if (!inputField) return;
     
     const query = inputField.value.toLowerCase().trim();
 
-    // 1. Перевірка на порожній запит
     if (query === "") {
         alert("Будь ласка, введіть назву товару для пошуку.");
         return false;
     }
 
-    // 2. Логіка перенаправлення за ключовими словами
     if (query.includes('ноут') || query.includes('laptop') || query.includes('asus') || query.includes('acer') || query.includes('lenovo')) {
         window.location.href = 'catalog-laptops.html';
     } 
@@ -181,12 +178,36 @@ function performSearch(event) {
     else if (query.includes('миш') || query.includes('клавіа') || query.includes('навуш') || query.includes('монітор') || query.includes('перифер')) {
         window.location.href = 'catalog-peripherals.html';
     } 
-    // 3. ЯКЩО НІЧОГО НЕ ЗНАЙДЕНО
     else {
         alert("На жаль, за запитом '" + query + "' нічого не знайдено. Спробуйте ввести: 'ноутбук', 'RTX' або 'миша'.");
     }
 
     return false;
+}
+
+// ВИПРАВЛЕНО: Додано функції для роботи кошика
+function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem('techCart')) || [];
+    let cartCountElement = document.getElementById('cart-count');
+    if (cartCountElement) {
+        cartCountElement.innerText = cart.length;
+    }
+}
+
+function addToCart(productName, productPrice) {
+    let cart = JSON.parse(localStorage.getItem('techCart')) || [];
+    cart.push({
+        name: productName,
+        price: productPrice
+    });
+    localStorage.setItem('techCart', JSON.stringify(cart));
+    updateCartCount();
+    alert(productName + " успішно додано в кошик!");
+}
+
+// Оновлюємо лічильник при завантаженні сторінки
+window.onload = function() {
+    updateCartCount();
 }
 </script>
 </body>

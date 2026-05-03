@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intel Core i9-13900K | TECH HARBOR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="tech-shop-theme">
+    <header>
+        <div class="header-main">
+            <div class="logo-container">
+                <h1><a href="index.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-microchip"></i> TECH HARBOR</a></h1>
+            </div>
+            <div class="header-icons">
+                <a href="profile.html"><i class="fa-solid fa-user"></i> Профіль</a>
+                <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Кошик (<span id="cart-count">0</span>)</a>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Головна</a>
+            <a href="catalog-components.html" class="active">Комплектуючі</a>
+            <a href="about.html">Про нас</a>
+        </nav>
+    </header>
+
+    <main class="product-page">
+        <section class="product-top-section">
+            <div class="product-gallery">
+                <img src="Intel Core i9-13900K 3.0(5.8)GHz.jpg" alt="i9-13900K" class="main-image" id="main-img">
+            </div>
+
+            <div class="product-info-panel">
+                <h2 class="product-title">Процесор Intel Core i9-13900K 3.0(5.8)GHz</h2>
+                <div class="product-meta">
+                    <span class="stock-status in-stock"><i class="fa-solid fa-check"></i> В наявності</span>
+                </div>
+                
+                <div class="purchase-block">
+                    <div class="price-huge">21 999 ₴</div>
+                    <div class="buy-actions">
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <a href="cart.html" class="button button-large buy-btn" onclick="addToCartUniversal(event)">
+                            <i class="fa-solid fa-cart-shopping"></i> ДОДАТИ В КОШИК
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+    function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem('techCart')) || [];
+        let totalItems = 0;
+        cart.forEach(item => totalItems += (item.qty || 1));
+        
+        let countElement = document.getElementById('cart-count');
+        if (countElement) countElement.innerText = totalItems;
+    }
+
+    function addToCartUniversal(event) {
+        event.preventDefault();
+        
+        // Збираємо всі дані зі сторінки
+        let title = document.querySelector('.product-title').innerText.trim();
+        let price = parseInt(document.querySelector('.price-huge').innerText.replace(/\D/g, ''));
+        let qty = parseInt(document.querySelector('.qty-input').value);
+        let imgSrc = document.querySelector('.main-image').src; // Беремо посилання на картинку
+
+        let cart = JSON.parse(localStorage.getItem('techCart')) || [];
+        
+        // Перевіряємо, чи є вже такий товар у кошику
+        let existingItem = cart.find(item => item.title === title);
+        if (existingItem) {
+            existingItem.qty += qty; // Якщо є - просто збільшуємо кількість
+        } else {
+            // Зберігаємо товар з правильними назвами (title, image), щоб кошик їх зрозумів
+            cart.push({ title: title, price: price, qty: qty, image: imgSrc });
+        }
+        
+        localStorage.setItem('techCart', JSON.stringify(cart));
+        window.location.href = 'cart.html';
+        // --- Початок красивого повідомлення ---
+        const notification = document.createElement('div');
+        notification.innerHTML = '<i class="fa-solid fa-circle-check"></i> Товар додано в кошик!';
+        notification.style.cssText = 'position: fixed; bottom: 30px; right: 30px; background: #00d4ff; color: #111; padding: 15px 25px; border-radius: 8px; font-weight: bold; font-family: "Oswald", sans-serif; box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4); z-index: 1000; transition: all 0.4s ease; opacity: 0; transform: translateY(20px);';
+
+        document.body.appendChild(notification);
+
+        // Плавна поява
+        setTimeout(() => {
+            notification.style.opacity = '1';
+            notification.style.transform = 'translateY(0)';
+        }, 10);
+
+        // Плавне зникнення через 3 секунди
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateY(20px)';
+            setTimeout(() => notification.remove(), 400); // видаляємо з пам'яті
+        }, 3000);
+        // --- Кінець красивого повідомлення ---
+    }
+
+    window.onload = updateCartCount;
+</script>
+</body>
+</html> 

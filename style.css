@@ -933,7 +933,10 @@ footer {
 .summary-note i {
     color: #2ecc71;
 }
-
+.specs-table { display: table !important; width: 100%; border-collapse: collapse; margin-top: 20px; }
+.specs-table tr { display: table-row !important; }
+.specs-table th, .specs-table td { display: table-cell !important; padding: 12px; border-bottom: 1px solid #333; text-align: left; }
+.specs-table th { color: #ccc; width: 45%; }
 /* Адаптивність для кошика */
 @media (max-width: 900px) {
     .cart-layout {
@@ -947,4 +950,30 @@ footer {
         flex-direction: column;
         gap: 0;
     }
+}
+/* --- Кастомне сповіщення (Toast) про додавання в кошик --- */
+#custom-toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #1a1d21;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 8px;
+    border-left: 4px solid #00d4ff; /* Блакитний акцент в стилі сайту */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    z-index: 9999;
+    /* Анімація виїзду */
+    transform: translateX(150%);
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Клас, який буде показувати сповіщення */
+#custom-toast.show {
+    transform: translateX(0);
 }

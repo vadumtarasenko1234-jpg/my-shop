@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Harbor Streamer | Ігровий ПК</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .product-page { max-width: 1200px; margin: 40px auto; padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .product-gallery img { width: 100%; border-radius: 12px; border: 1px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.5); object-fit: cover; }
+        .product-info h1 { font-size: 2.5rem; color: #fff; margin-bottom: 10px; }
+        .product-info .sku { color: #888; margin-bottom: 20px; font-size: 0.9rem; }
+        .product-info .price-big { font-size: 3rem; color: #00d4ff; font-weight: bold; margin: 20px 0; font-family: 'Oswald', sans-serif; }
+        .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
+        .spec-item { display: flex; align-items: center; gap: 15px; background: #1a1d21; padding: 15px; border-radius: 8px; border: 1px solid #333; }
+        .spec-item i { color: #00d4ff; font-size: 1.5rem; width: 30px; text-align: center; }
+        .spec-text span { display: block; color: #888; font-size: 0.8rem; }
+        .spec-text strong { color: #fff; font-size: 1rem; }
+        .description-section { margin-top: 40px; border-top: 1px solid #333; padding-top: 30px; line-height: 1.6; color: #ccc; }
+        @media (max-width: 850px) { .product-page { grid-template-columns: 1fr; } .specs-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body class="tech-shop-theme">
+
+    <header>
+        <div class="header-main">
+            <div class="logo-container">
+                <h1><a href="index.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-microchip"></i> TECH HARBOR</a></h1>
+            </div>
+            <div class="header-icons">
+                <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Кошик <span id="cart-counter" style="color: #00d4ff; font-weight: bold;">(0)</span></a>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Головна</a>
+            <a href="catalog.html" class="active">Каталог ПК</a>
+            <a href="about.html">Про нас</a>
+            <a href="contacts.html">Контакти</a>
+        </nav>
+    </header>
+
+    <main class="product-page">
+        <div class="product-gallery">
+            <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ7xbT_oEydg5h6Dx4GH1h8pbhmOb3CB_Bqly3tcPSwx62M8bIuV4f0k55_Uh-7tcGCgTgyUUokqRwSW2OOesc3QFI-bxpfCRFnTdO57dewXu_e6c_mIZNjWGYQjvRcfUwdTSqwisU&usqp=CAc" alt="Tech Harbor Streamer" id="main-product-img">
+        </div>
+        <div class="product-info">
+            <a href="catalog.html" style="color: #00d4ff; text-decoration: none; display: inline-block; margin-bottom: 20px;"><i class="fa-solid fa-arrow-left"></i> Назад до каталогу</a>
+            <h1 id="product-title">Tech Harbor Streamer</h1>
+            <p class="sku">Код товару: TH-STR-04</p>
+            <div class="price-big" id="product-price">110 000 ₴</div>
+            <div class="specs-grid">
+                <div class="spec-item"><i class="fa-solid fa-cpu"></i><div class="spec-text"><span>Процесор</span><strong>AMD Ryzen 9 7950X</strong></div></div>
+                <div class="spec-item"><i class="fa-solid fa-microchip"></i><div class="spec-text"><span>Відеокарта</span><strong>NVIDIA RTX 4070 Ti 12GB</strong></div></div>
+                <div class="spec-item"><i class="fa-solid fa-memory"></i><div class="spec-text"><span>ОЗП</span><strong>32GB DDR5 6000MHz</strong></div></div>
+                <div class="spec-item"><i class="fa-solid fa-hard-drive"></i><div class="spec-text"><span>Накопичувач</span><strong>2TB NVMe Gen4 SSD</strong></div></div>
+                <div class="spec-item"><i class="fa-solid fa-box"></i><div class="spec-text"><span>Материнська плата</span><strong>X670 Gaming X AX</strong></div></div>
+                <div class="spec-item"><i class="fa-solid fa-plug"></i><div class="spec-text"><span>Блок живлення</span><strong>850W 80+ Gold</strong></div></div>
+            </div>
+            <button class="button" onclick="addToCartFromProduct(event)" style="width: 100%; padding: 15px; font-size: 1.2rem; cursor: pointer;">
+                <i class="fa-solid fa-cart-plus"></i> Додати у кошик
+            </button>
+            <div class="description-section">
+                <h3>Про цю збірку</h3>
+                <p>Tech Harbor Streamer — потужна машина для тих, хто не лише грає, але й створює контент. Завдяки 16-ядерному процесору ви зможете легко стрімити, рендерити відео та працювати у важких програмах без втрати продуктивності.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-bottom"><p>&copy; 2024 Tech Harbor. Усі права захищені.</p></footer>
+
+    <script>
+        function updateCartCounter() {
+            let cart = JSON.parse(localStorage.getItem('techCart')) || [];
+            let totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cart-counter').innerText = `(${totalQty})`;
+        }
+        document.addEventListener('DOMContentLoaded', updateCartCounter);
+        function addToCartFromProduct(event) {
+            const title = document.getElementById('product-title').innerText;
+            const price = parseInt(document.getElementById('product-price').innerText.replace(/\D/g, ''));
+            const imgSrc = document.getElementById('main-product-img').src;
+            let cart = JSON.parse(localStorage.getItem('techCart')) || [];
+            let existingItem = cart.find(item => item.title === title);
+            if (existingItem) { existingItem.qty += 1; } else { cart.push({ title: title, price: price, qty: 1, image: imgSrc }); }
+            localStorage.setItem('techCart', JSON.stringify(cart));
+            updateCartCounter();
+            const btn = event.target.closest('.button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-check"></i> Додано в кошик!';
+            btn.style.backgroundColor = '#28a745'; btn.style.borderColor = '#28a745'; btn.style.color = '#fff';
+            setTimeout(() => { btn.innerHTML = originalText; btn.style.backgroundColor = ''; btn.style.borderColor = ''; btn.style.color = ''; }, 1500);
+        }
+    </script>
+</body>
+</html>

@@ -42,7 +42,7 @@
             </div>
             <div class="header-icons">
                 <a href="profile.html" class="active"><i class="fa-solid fa-user"></i> Профіль</a>
-                <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Кошик</a>
+                <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Кошик (<span id="cart-count">0</span>)</a>
             </div>
         </div>
         <nav>
@@ -65,75 +65,75 @@
                 <p style="color: #777;">ID: 44821</p>
                 
                 <nav class="profile-nav">
-    <a href="#" class="active"><i class="fa-solid fa-address-card"></i> Особисті дані</a>
-    <a href="javascript:void(0)" onclick="showOrders()"><i class="fa-solid fa-box-open"></i> Мої замовлення</a>
-    <a href="javascript:void(0)" onclick="showWishlist()"><i class="fa-solid fa-heart"></i> Список бажань</a>
-    <a href="index.html" style="color: #ff4d4d;"><i class="fa-solid fa-right-from-bracket"></i> Вийти</a>
-</nav>
+                    <a href="#" class="active"><i class="fa-solid fa-address-card"></i> Особисті дані</a>
+                    <a href="javascript:void(0)" onclick="showOrders()"><i class="fa-solid fa-box-open"></i> Мої замовлення</a>
+                    <a href="javascript:void(0)" onclick="showWishlist()"><i class="fa-solid fa-heart"></i> Список бажань</a>
+                    <a href="index.html" style="color: #ff4d4d;"><i class="fa-solid fa-right-from-bracket"></i> Вийти</a>
+                </nav>
             </aside>
 
-           <section class="profile-main">
-    <h2 class="section-title" style="text-align: left; margin-top: 0;">ОСОБИСТІ ДАНІ</h2>
-    
-    <div id="view-mode">
-        <div class="info-grid">
-            <div class="info-group">
-                <label>Прізвище та Ім'я</label>
-                <div id="display-name">Олександр Петренко</div>
-            </div>
-            <div class="info-group">
-                <label>Електронна пошта</label>
-                <div id="display-email">alex.p@gmail.com</div>
-            </div>
-            <div class="info-group">
-                <label>Телефон</label>
-                <div id="display-phone">+38 (067) 111-22-33</div>
-            </div>
-            <div class="info-group">
-                <label>Місто доставки</label>
-                <div id="display-city">Київ</div>
-            </div>
-        </div>
-        <button class="button" style="margin-top: 30px;" onclick="toggleEdit()">РЕДАГУВАТИ ПРОФІЛЬ</button>
-    </div>
+            <section class="profile-main">
+                <h2 class="section-title" style="text-align: left; margin-top: 0;">ОСОБИСТІ ДАНІ</h2>
+                
+                <div id="view-mode">
+                    <div class="info-grid">
+                        <div class="info-group">
+                            <label>Прізвище та Ім'я</label>
+                            <div id="display-name">Олександр Петренко</div>
+                        </div>
+                        <div class="info-group">
+                            <label>Електронна пошта</label>
+                            <div id="display-email">alex.p@gmail.com</div>
+                        </div>
+                        <div class="info-group">
+                            <label>Телефон</label>
+                            <div id="display-phone">+38 (067) 111-22-33</div>
+                        </div>
+                        <div class="info-group">
+                            <label>Місто доставки</label>
+                            <div id="display-city">Київ</div>
+                        </div>
+                    </div>
+                    <button class="button" style="margin-top: 30px;" onclick="toggleEdit()">РЕДАГУВАТИ ПРОФІЛЬ</button>
+                </div>
 
-    <div id="edit-mode" style="display: none;">
-        <div class="info-grid">
-            <div class="info-group">
-                <label>Прізвище та Ім'я</label>
-                <input type="text" id="edit-name" value="Олександр Петренко" class="qty-input-small" style="width: 100%;">
-            </div>
-            <div class="info-group">
-                <label>Електронна пошта</label>
-                <input type="email" id="edit-email" value="alex.p@gmail.com" class="qty-input-small" style="width: 100%;">
-            </div>
-            <div class="info-group">
-                <label>Телефон</label>
-                <input type="text" id="edit-phone" value="+38 (067) 111-22-33" class="qty-input-small" style="width: 100%;">
-            </div>
-            <div class="info-group">
-                <label>Місто доставки</label>
-                <input type="text" id="edit-city" value="Київ" class="qty-input-small" style="width: 100%;">
-            </div>
-        </div>
-        <div style="margin-top: 30px; display: flex; gap: 10px;">
-            <button class="button" onclick="saveChanges()">ЗБЕРЕГТИ</button>
-            <button class="button" style="background: #333;" onclick="toggleEdit()">СКАСУВАТИ</button>
-        </div>
-    </div>
+                <div id="edit-mode" style="display: none;">
+                    <div class="info-grid">
+                        <div class="info-group">
+                            <label>Прізвище та Ім'я</label>
+                            <input type="text" id="edit-name" value="Олександр Петренко" class="qty-input-small" style="width: 100%;">
+                        </div>
+                        <div class="info-group">
+                            <label>Електронна пошта</label>
+                            <input type="email" id="edit-email" value="alex.p@gmail.com" class="qty-input-small" style="width: 100%;">
+                        </div>
+                        <div class="info-group">
+                            <label>Телефон</label>
+                            <input type="text" id="edit-phone" value="+38 (067) 111-22-33" class="qty-input-small" style="width: 100%;">
+                        </div>
+                        <div class="info-group">
+                            <label>Місто доставки</label>
+                            <input type="text" id="edit-city" value="Київ" class="qty-input-small" style="width: 100%;">
+                        </div>
+                    </div>
+                    <div style="margin-top: 30px; display: flex; gap: 10px;">
+                        <button class="button" onclick="saveChanges()">ЗБЕРЕГТИ</button>
+                        <button class="button" style="background: #333;" onclick="toggleEdit()">СКАСУВАТИ</button>
+                    </div>
+                </div>
 
-    <h2 class="section-title" style="text-align: left; margin-top: 40px;">ОСТАННЄ ЗАМОВЛЕННЯ</h2>
-    <div class="order-card">
-        <div>
-            <p><strong>№ 55301 від 28.03.2024</strong></p>
-            <p style="font-size: 0.9rem; color: #777;">Відеокарта MSI RTX 4090, Блок живлення 1000W</p>
-        </div>
-        <div style="text-align: right;">
-            <p style="color: #00ff88; font-weight: bold;">Виконано</p>
-            <p>89 400 ₴</p>
-        </div>
-    </div>
-</section>
+                <h2 class="section-title" style="text-align: left; margin-top: 40px;">ОСТАННЄ ЗАМОВЛЕННЯ</h2>
+                <div class="order-card">
+                    <div>
+                        <p><strong>№ 55301 від 28.03.2024</strong></p>
+                        <p style="font-size: 0.9rem; color: #777;">Відеокарта MSI RTX 4090, Блок живлення 1000W</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <p style="color: #00ff88; font-weight: bold;">Виконано</p>
+                        <p>89 400 ₴</p>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
 
@@ -143,51 +143,65 @@
         </div>
     </footer>
 
+    <script>
+        // Функція перемикання між переглядом і редагуванням
+        function toggleEdit() {
+            const viewMode = document.getElementById('view-mode');
+            const editMode = document.getElementById('edit-mode');
+            
+            if (viewMode.style.display === 'none') {
+                viewMode.style.display = 'block';
+                editMode.style.display = 'none';
+            } else {
+                viewMode.style.display = 'none';
+                editMode.style.display = 'block';
+            }
+        }
+
+        // Функція збереження змін
+        function saveChanges() {
+            // Беремо дані з інпутів
+            const newName = document.getElementById('edit-name').value;
+            const newEmail = document.getElementById('edit-email').value;
+            const newPhone = document.getElementById('edit-phone').value;
+            const newCity = document.getElementById('edit-city').value;
+
+            // Записуємо їх у текстові блоки
+            document.getElementById('display-name').innerText = newName;
+            document.getElementById('display-email').innerText = newEmail;
+            document.getElementById('display-phone').innerText = newPhone;
+            document.getElementById('display-city').innerText = newCity;
+            
+            // Оновлюємо ім'я в шапці профілю
+            document.querySelector('.profile-sidebar h3').innerText = newName;
+
+            // Повертаємося в режим перегляду
+            toggleEdit();
+            alert("Дані успішно оновлено!");
+        }
+
+        // Функції для кнопок, що не працювали
+        function showOrders() {
+            alert("У вас поки що немає нових замовлень, окрім завершеного.");
+        }
+
+        function showWishlist() {
+            alert("Ваш список бажань порожній. Перейдіть у каталог, щоб додати товари.");
+        }
+
+        // СИНХРОНІЗАЦІЯ КОШИКА
+        function updateCartCount() {
+            let cart = JSON.parse(localStorage.getItem('techCart')) || [];
+            let cartCountElement = document.getElementById('cart-count');
+            if (cartCountElement) {
+                cartCountElement.innerText = cart.length;
+            }
+        }
+
+        // Оновлюємо лічильник при завантаженні сторінки
+        window.onload = function() {
+            updateCartCount();
+        }
+    </script>
 </body>
 </html>
-<script>
-    // Функція перемикання між переглядом і редагуванням
-    function toggleEdit() {
-        const viewMode = document.getElementById('view-mode');
-        const editMode = document.getElementById('edit-mode');
-        
-        if (viewMode.style.display === 'none') {
-            viewMode.style.display = 'block';
-            editMode.style.display = 'none';
-        } else {
-            viewMode.style.display = 'none';
-            editMode.style.display = 'block';
-        }
-    }
-
-    // Функція збереження змін
-    function saveChanges() {
-        // Беремо дані з інпутів
-        const newName = document.getElementById('edit-name').value;
-        const newEmail = document.getElementById('edit-email').value;
-        const newPhone = document.getElementById('edit-phone').value;
-        const newCity = document.getElementById('edit-city').value;
-
-        // Записуємо їх у текстові блоки
-        document.getElementById('display-name').innerText = newName;
-        document.getElementById('display-email').innerText = newEmail;
-        document.getElementById('display-phone').innerText = newPhone;
-        document.getElementById('display-city').innerText = newCity;
-        
-        // Оновлюємо ім'я в шапці профілю
-        document.querySelector('.profile-sidebar h3').innerText = newName;
-
-        // Повертаємося в режим перегляду
-        toggleEdit();
-        alert("Дані успішно оновлено!");
-    }
-
-    // Функції для кнопок, що не працювали
-    function showOrders() {
-        alert("У вас поки що немає нових замовлень, окрім завершеного.");
-    }
-
-    function showWishlist() {
-        alert("Ваш список бажань порожній. Перейдіть у каталог, щоб додати товари.");
-    }
-</script>

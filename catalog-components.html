@@ -38,9 +38,15 @@
             <div class="logo-container">
                 <h1><a href="index.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-microchip"></i> TECH HARBOR</a></h1>
             </div>
+            
+            <form class="search-form" onsubmit="return performSearch(event)">
+                <input type="text" id="search-input" placeholder="Пошук товарів...">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+
             <div class="header-icons">
                 <a href="profile.html"><i class="fa-solid fa-user"></i> Профіль</a>
-                <a href="cart.html" id="cart-link"><i class="fa-solid fa-cart-shopping"></i> Кошик (0)</a>
+                <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Кошик (<span id="cart-count">0</span>)</a>
             </div>
         </div>
         <nav>
@@ -122,44 +128,44 @@
                     
                     <article class="product-card">
                         <div class="badge">ТОП</div>
-                        <a href="#"><img src="Gigabyte GeForce RTX 4090 Gaming OC.jpg.jpg" alt="Laptop" class="product-img"></a>
-                        <h3><a href="product.html" style="color: inherit; text-decoration: none;">Gigabyte GeForce RTX 4090 Gaming OC</a></h3>
+                        <a href="product-rtx4090.html"><img src="Gigabyte GeForce RTX 4090 Gaming OC.jpg.jpg" alt="RTX 4090" class="product-img"></a>
+                        <h3><a href="product-rtx4090.html" style="color: inherit; text-decoration: none;">Gigabyte GeForce RTX 4090 Gaming OC</a></h3>
                         <p class="price">75 999 ₴</p>
                         <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
                     </article>
 
                     <article class="product-card">
-                        <a href="#"><img src="Intel Core i9-13900K 3.0(5.8)GHz.jpg" alt="Laptop" class="product-img"></a>
-                        <h3><a href="#" style="color: inherit; text-decoration: none;">Intel Core i9-13900K 3.0(5.8)GHz</a></h3>
+                        <a href="product-i9.html"><img src="Intel Core i9-13900K 3.0(5.8)GHz.jpg" alt="Intel Core i9" class="product-img"></a>
+                        <h3><a href="product-i9.html" style="color: inherit; text-decoration: none;">Intel Core i9-13900K 3.0(5.8)GHz</a></h3>
                         <p class="price">21 999 ₴</p>
                         <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
                     </article>
 
                     <article class="product-card">
                         <div class="badge discount">-10%</div>
-                        <a href="#"><img src="ASUS ROG Maximus Z790 Hero.jpg" alt="Laptop" class="product-img"></a>
-                        <h3><a href="#" style="color: inherit; text-decoration: none;">ASUS ROG Maximus Z790 Hero</a></h3>
+                        <a href="product-z790.html"><img src="ASUS ROG Maximus Z790 Hero.jpg" alt="ASUS Motherboard" class="product-img"></a>
+                        <h3><a href="product-z790.html" style="color: inherit; text-decoration: none;">ASUS ROG Maximus Z790 Hero</a></h3>
                         <p class="price">25 499 ₴ <del>28 300 ₴</del></p>
                         <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
                     </article>
 
                     <article class="product-card">
-                        <a href="#"><img src="Kingston Fury DDR5 32GB 6000MHz.jpg" alt="Laptop" class="product-img"></a>
-                        <h3><a href="#" style="color: inherit; text-decoration: none;">Kingston Fury DDR5 32GB 6000MHz</a></h3>
+                        <a href="product-ddr5.html"><img src="Kingston Fury DDR5 32GB 6000MHz.jpg" alt="RAM DDR5" class="product-img"></a>
+                        <h3><a href="product-ddr5.html" style="color: inherit; text-decoration: none;">Kingston Fury DDR5 32GB 6000MHz</a></h3>
                         <p class="price">6 299 ₴</p>
                         <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
                     </article>
 
                     <article class="product-card">
-                        <a href="#"><img src="MSI Radeon RX 7900 XTX Gaming Trio.jpg" alt="Laptop" class="product-img"></a>
-                        <h3><a href="#" style="color: inherit; text-decoration: none;">MSI Radeon RX 7900 XTX Gaming Trio</a></h3>
+                        <a href="product-rx7900.html"><img src="MSI Radeon RX 7900 XTX Gaming Trio.jpg" alt="RX 7900" class="product-img"></a>
+                        <h3><a href="product-rx7900.html" style="color: inherit; text-decoration: none;">MSI Radeon RX 7900 XTX Gaming Trio</a></h3>
                         <p class="price">46 999 ₴</p>
                         <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
                     </article>
 
                     <article class="product-card">
-                        <a href="#"><img src="AMD Ryzen 9 7950X3D 4.2(5.7)GHz.jpg" alt="Laptop" class="product-img"></a>
-                        <h3><a href="#" style="color: inherit; text-decoration: none;">AMD Ryzen 9 7950X3D 4.2(5.7)GHz</a></h3>
+                        <a href="product-ryzen9.html"><img src="AMD Ryzen 9 7950X3D 4.2(5.7)GHz.jpg" alt="Ryzen 9" class="product-img"></a>
+                        <h3><a href="product-ryzen9.html" style="color: inherit; text-decoration: none;">AMD Ryzen 9 7950X3D 4.2(5.7)GHz</a></h3>
                         <p class="price">28 999 ₴</p>
                         <button class="button" onclick="addToCart(event)" style="width: 100%; border: none; cursor: pointer;">В кошик</button>
                     </article>
@@ -183,59 +189,89 @@
     </footer>
 
 <script>
-    // Оновлення лічильника кошика в шапці сайту
-    function updateHeaderCartCount() {
-        let cart = JSON.parse(localStorage.getItem('techCart')) || [];
-        let totalItems = 0;
-        cart.forEach(item => totalItems += item.qty);
+    // 1. Пошук
+    function performSearch(event) {
+        event.preventDefault(); 
+        const inputField = document.getElementById('search-input');
+        if (!inputField) return;
         
-        let cartLink = document.getElementById('cart-link');
-        if (cartLink) {
-            cartLink.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> Кошик (${totalItems})`;
+        const query = inputField.value.toLowerCase().trim();
+
+        if (query === "") {
+            alert("Будь ласка, введіть назву товару для пошуку.");
+            return false;
+        }
+
+        if (query.includes('ноут') || query.includes('laptop') || query.includes('asus') || query.includes('acer') || query.includes('lenovo')) {
+            window.location.href = 'catalog-laptops.html';
+        } else if (query.includes('відео') || query.includes('rtx') || query.includes('gpu') || query.includes('процесор') || query.includes('intel') || query.includes('amd')) {
+            window.location.href = 'catalog-components.html';
+        } else if (query.includes('миш') || query.includes('клавіа') || query.includes('навуш') || query.includes('монітор') || query.includes('перифер')) {
+            window.location.href = 'catalog-peripherals.html';
+        } else {
+            alert("На жаль, за запитом '" + query + "' нічого не знайдено.");
+        }
+        return false;
+    }
+
+    // 2. Оновлення лічильника кошика
+    function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem('techCart')) || [];
+        let cartCountElement = document.getElementById('cart-count');
+        if (cartCountElement) {
+            cartCountElement.innerText = cart.length;
         }
     }
 
-    // Додавання товару
+    // 3. Універсальне додавання товару з каталогу
     function addToCart(event) {
+        event.preventDefault(); // Зупиняємо перехід, якщо раптом клікнули на посилання
         const card = event.target.closest('.product-card'); 
         
-        if (!card) {
-            console.error("Не можу знайти картку товару!");
-            return;
-        }
+        if (!card) return;
 
-        const title = card.querySelector('h3') ? card.querySelector('h3').innerText : 'Невідомий товар';
+        // Беремо назву
+        const title = card.querySelector('h3').innerText.trim();
         
+        // Беремо ціну і відсікаємо стару (те, що в тегу <del>)
         const priceElement = card.querySelector('.price');
-        let price = 0;
-        if (priceElement) {
-            // Розділяємо по символу ₴ і беремо тільки першу частину, щоб відсікти стару ціну у тегу <del>
-            let priceText = priceElement.innerText.split('₴')[0]; 
-            price = parseInt(priceText.replace(/\D/g, '')); 
-        }
+        let priceText = priceElement.innerText.split('₴')[0]; 
+        let price = parseInt(priceText.replace(/\D/g, '')); 
 
-        const imgElement = card.querySelector('img');
-        const imgSrc = imgElement ? imgElement.src : '';
-
+        // Додаємо в локальну пам'ять в такому ж форматі, як і на сторінці товару
         let cart = JSON.parse(localStorage.getItem('techCart')) || [];
-
-        let existingItem = cart.find(item => item.title === title);
-        if (existingItem) {
-            existingItem.qty += 1; 
-        } else {
-            cart.push({ title: title, price: price, qty: 1, image: imgSrc });
-        }
-
+        cart.push({ name: title, price: price });
         localStorage.setItem('techCart', JSON.stringify(cart));
         
         // Оновлюємо цифру в шапці
-        updateHeaderCartCount();
+        updateCartCount();
 
-        alert(`Товар "${title}" успішно додано в кошик!`);
+        // --- Початок красивого повідомлення ---
+        const notification = document.createElement('div');
+        notification.innerHTML = '<i class="fa-solid fa-circle-check"></i> Товар додано в кошик!';
+        notification.style.cssText = 'position: fixed; bottom: 30px; right: 30px; background: #00d4ff; color: #111; padding: 15px 25px; border-radius: 8px; font-weight: bold; font-family: "Oswald", sans-serif; box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4); z-index: 1000; transition: all 0.4s ease; opacity: 0; transform: translateY(20px);';
+
+        document.body.appendChild(notification);
+
+        // Плавна поява
+        setTimeout(() => {
+            notification.style.opacity = '1';
+            notification.style.transform = 'translateY(0)';
+        }, 10);
+
+        // Плавне зникнення через 3 секунди
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateY(20px)';
+            setTimeout(() => notification.remove(), 400); // видаляємо з пам'яті
+        }, 3000);
+        // --- Кінець красивого повідомлення ---
     }
 
-    // При завантаженні сторінки одразу рахуємо кількість
-    document.addEventListener('DOMContentLoaded', updateHeaderCartCount);
+    // Оновлюємо лічильник при завантаженні сторінки
+    window.onload = function() {
+        updateCartCount();
+    }
 </script>
 
 </body>
